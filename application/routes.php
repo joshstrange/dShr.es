@@ -55,7 +55,7 @@ Route::get('are/(:any)', function($hash)
 	if(DB::table('shares')->where('urlHash', '=', $hash)->count() !=1)
 		Redirect::to('404')->send();
 	$share = DB::table('shares')->where('urlHash', '=', $hash)->first();
-	return View::make('view.index')->with('share', $share);
+	return View::make('home.view')->with('share', $share);
 });
 
 Route::get('linkdropbox', function()
