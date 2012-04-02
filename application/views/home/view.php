@@ -128,6 +128,7 @@
 	</head>
 	<body>
 		<div id="main">
+			<?=die(print_r($share,1))?>
 			<h1>Drop.Sh/are<img style="float:right;" src="/img/dropshare-logo-150x200.png"></h1>
 
 			<h2>#!/usr/bin/sharing</h2>
