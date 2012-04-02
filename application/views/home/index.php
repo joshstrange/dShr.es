@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Laravel - A Framework For Web Artisans</title>
+		<title>Drop.Sh/are - #!/usr/bin/sharing</title>
 
 		<style>
 			@import url(http://fonts.googleapis.com/css?family=Ubuntu);
@@ -89,14 +89,12 @@
 	</head>
 	<body>
 		<div id="main">
-			<h1>Welcome To Laravel</h1>
+			<h1><img src="/img/dropshare-logo-30x40.png">Welcome To Drop.Sh/are</h1>
 
-			<h2>A Framework For Web Artisans</h2>
+			<h2>#!/usr/bin/sharing</h2>
 
 			<p>
-				You have successfully installed the Laravel framework. Laravel is a simple framework
-				that helps web artisans create beautiful, creative applications using elegant, expressive
-				syntax. You'll love using it.
+				Drop.Sh/are make it super easy to share <a href="http://drpbox.com">Dropbox</a> files with anyone! Simply 
 			</p>
 
 			<h3>Learn the terrain.</h3>
