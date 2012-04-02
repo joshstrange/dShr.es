@@ -143,7 +143,14 @@
 					<td>
 						<h5>File: <?=$share->filename?></h5>
 						<h5>Size: <?=$share->size?></h5>
-						<h5><a class="pubLink" href="<?=$share->publiclink?>"></a><a class="copyRef" href="/addToDB/<?=$share->copyref?>"></h5>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<a class="pubLink" href="<?=$share->publiclink?>"></a>
+					</td>
+					<td>
+						<a class="copyRef" href="/addToDB/<?=$share->copyref?>"></a>
 					</td>
 				</tr>
 			</table>
