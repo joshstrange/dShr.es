@@ -89,7 +89,7 @@
 	</head>
 	<body>
 		<div id="main">
-			<h1><img src="/img/dropshare-logo-30x40.png">Welcome To Drop.Sh/are</h1>
+			<h1>Drop.Sh/are<img style="float:right;" src="/img/dropshare-logo-150x200.png"></h1>
 
 			<h2>#!/usr/bin/sharing</h2>
 
