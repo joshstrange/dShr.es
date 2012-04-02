@@ -125,23 +125,6 @@
 				cursor:pointer;
 			}
 		</style>
-		<script type="text/javascript">
-            $(function() {
-
-            });
-            function getLink(path,icon,size,pos)
-            {
-				$.getJSON('/getDSLink?path='+path+'&icon='+icon+'&size='+size, function(data) {
-					if(!data.error)
-					{
-						var link = data.url;
-						$('#dbshare_'+pos).html('<input value="'+link+'">');
-					}
-					else
-						alert(data.error)
-				});
-            }
-        </script>
 	</head>
 	<body>
 		<div id="main">
@@ -154,12 +137,12 @@
 			</p>
 			<table>
 				<tr>
-					<img src="/img/48x48/<?=$share['icon']?>.gif">
+					<img src="/img/48x48/<?=$share->icon?>.gif">
 				</tr>
 				<tr>
-					<h3>File: <?=$share['filename']?></h3>
-					<h3>Size: <?=$share['size']?></h3>
-					<h3><a class="pubLink" href="<?=$share['publicLink']?>"></a><a class="copyRef" href="/addToDB/<?=$share['copyRef']?>"></h3>
+					<h3>File: <?=$share->filename?></h3>
+					<h3>Size: <?=$share->size?></h3>
+					<h3><a class="pubLink" href="<?=$share->publicLink?>"></a><a class="copyRef" href="/addToDB/<?=$share->copyRef?>"></h3>
 				</tr>
 			</table>
 			<?php
