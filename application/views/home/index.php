@@ -94,34 +94,26 @@
 			<h2>#!/usr/bin/sharing</h2>
 
 			<p>
-				Drop.Sh/are make it super easy to share <a href="http://drpbox.com">Dropbox</a> files with anyone! Simply 
+				Drop.Sh/are make it super easy to share <a href="http://drpbox.com">Dropbox</a> files with anyone! 
 			</p>
-
-			<h3>Learn the terrain.</h3>
-
-			<p>
-				You've landed yourself on our default home page. The route that
-				is generating this page lives at:
-			</p>
-
-			<pre><code>APP_PATH/routes.php</code></pre>
-
-			<p>And the view sitting before you can be found at:</p>
-
-			<pre><code>APP_PATH/views/home/index.php</code></pre>
-
-			<h3>Create something beautiful.</h3>
-
-			<p>
-				Now that you're up and running, it's time to start creating!
-				Here are some links to help you get started:
-			</p>
-
-			<ul>
-				<li><a href="http://laravel.com">Official Website</a></li>
-				<li><a href="http://forums.laravel.com">Laravel Forums</a></li>
-				<li><a href="http://github.com/laravel/laravel">GitHub Repository</a></li>
-			</ul>
+			<?php
+				if($loggedIn)
+				{
+					?>
+						<h3>You are logged in!</h3>
+					<?php
+					echo "<code>";
+						print_r($dropbox->accountInfo());
+					echo "</code>";
+				}
+				else
+				{
+					?>
+					<h3><a href="/dropboxlink">Link Your Dropbox!</a></h3>
+					<?php
+				}
+				
+			?>
 		</div>
 	</body>
 </html>

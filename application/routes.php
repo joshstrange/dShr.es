@@ -36,7 +36,18 @@
 
 Route::get('/, are', function()
 {
-	return View::make('home.index');
+	session_start();
+	if(isset($_SESSION['dropbox_api']) && is_array($_SESSION['dropbox_api']))
+	{
+		$dropbox = requireDropbox();
+		$loggedIn =true;
+	}
+	else
+	{
+		$dropbox = null;
+		$loggedIn =false;
+	}
+	return View::make('home.index')->with('loggedIn', $loggedIn)->with('dropbox', $dropbox);
 });
 
 
