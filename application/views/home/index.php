@@ -150,7 +150,7 @@
 						$filePathArray = explode('/',$path);
 						$filename = $filePathArray[count($filePathArray)-1];
 						//print_r($file);
-						echo '<tr><td><img src="/img/16x16/'.$file->icon.'.gif"></td><td>'.$filename.'</td><td><a href="javascript:getLink(\''.$path.'\','.$file->icon.','.$file->size.','.$count.')" class="getLink"></a></td><td id="dbshare_'.$count.'"></td></tr>';
+						echo '<tr><td><img src="/img/16x16/'.$file->icon.'.gif"></td><td>'.$filename.'</td><td><a href="javascript:getLink(\''.$path.'\',\''.$file->icon.'\',\''.$file->size.'\',\''.$count.'\')" class="getLink"></a></td><td id="dbshare_'.$count.'"></td></tr>';
 					}
 
 					?>
