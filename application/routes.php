@@ -123,7 +123,7 @@ function requireDropbox()
 	// Register a simple autoload function
 	spl_autoload_register(function($class){
 		$class = str_replace('\\', '/', $class);
-		require_once('../lib/' . $class . '.php');
+		require_once('lib/' . $class . '.php');
 	});
 	// Check whether to use HTTPS and set the callback URL
 	$protocol = (!empty($_SERVER['HTTPS'])) ? 'https' : 'http';
