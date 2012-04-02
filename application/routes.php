@@ -45,6 +45,12 @@ Route::get('dbtest', function()
 	$dropbox = requireDropbox();
 	return print_r($dropbox->accountInfo(),1);
 });
+
+Route::get('session_debug', function()
+{
+	echo "<pre>";
+	return print_r($_SESSION,1);
+});
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
