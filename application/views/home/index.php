@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 
 		<title>Drop.Sh/are - #!/usr/bin/sharing</title>
-
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<style>
 			@import url(http://fonts.googleapis.com/css?family=Ubuntu);
 
@@ -85,7 +85,38 @@
 			#main li {
 				margin: 5px 0;
 			}
+			img {vertical-align: middle;}
+
+			.getLink {
+				display: inline-block;
+				width: 160px;
+				height: 23px;
+				background: url('/img/getLink.png') bottom;
+				vertical-align: middle;
+				/*text-indent: -99999px;*/
+			}
+			.getLink:hover {
+				background-position: 0 0;
+				cursor:pointer;
+			}
 		</style>
+		<script type="text/javascript">
+            $(function() {
+
+            });
+            function getLink(path,icon,size,pos)
+            {
+				$.getJSON('/getDSLink?path='+path+'&icon='+icon+'&size='+size, function(data) {
+					if(!data.error)
+					{
+						var link = data.url;
+						$('#dbshare_'+pos).html('<input value="'+link+'">');
+					}
+					else
+						alert(data.error)
+				});
+            }
+        </script>
 	</head>
 	<body>
 		<div id="main">
@@ -111,13 +142,15 @@
 					?>
 					<table>
 					<?php
+					$count =0;
 					foreach($files as $file)
 					{
+						$count++;
 						$path = $file->path;
 						$filePathArray = explode('/',$path);
 						$filename = $filePathArray[count($filePathArray)-1];
-						print_r($file);
-						echo '<tr><td><img src="/img/16x16/'.$file->icon.'.gif"></td><td>'.$filename.'</td><td><a href="addShare.php?file='.$filename.'&path='.$path.'" class="getLink"></a></td></tr>';
+						//print_r($file);
+						echo '<tr><td><img src="/img/16x16/'.$file->icon.'.gif"></td><td>'.$filename.'</td><td><a href="javascript:getLink('.$path.','.$file->icon.','.$file->size.','.$count.')" class="getLink"></a></td><td id="dbshare_'.$count.'"></td></tr>';
 					}
 
 					?>

@@ -86,7 +86,10 @@ Route::get('getDSLink', function()
 {
 	if(!isLoggedIn())
 		die(json_encode(array('error' => 'Dropbox is not linked!')));
+	$dropbox = requireDropbox();
 	$path = Input::get('file');
+	$size = Input::get('size');
+	$icon = Input::get('icon');
 	$pathArray = explode('/', $path);
 	$file = $pathArray[count($pathArray)-1];
 	$copyRef = $dropbox->getCopyRef($path);
@@ -95,21 +98,20 @@ Route::get('getDSLink', function()
 	$shareLink = $shareLink['body']->url;
 	$hash = substr(md5($path.time()), 0, 10);
 
-	$hashCheckQuery = mysql_query("SELECT count(*) as count FROM shares WHERE urlHash='$hash'");
-	$hashCheck = mysql_fetch_array($hashCheckQuery);
-	while($hashCheck['count'] !=0)
+	while(DB::table('shares')->where('urlHash', '=', $hash)->only('count') !=0)
 	{
 		$hash = substr(md5($path.time()), 0, 10);
-		$hashCheckQuery = mysql_query("SELECT count(*) as count FROM shares WHERE urlHash='$hash'");
-		$hashCheck = mysql_fetch_array($hashCheckQuery);
-
 	}
-
-	mysql_query("INSERT INTO shares (filename, publicLink, copyRef, urlHash, timestamp)VALUES('$file','$shareLink','$copyRef','$hash', NOW())");
-
-	//echo json_encode(array('url' => "http://".$_SERVER['SERVER_NAME']."/are/".$hash));
-	echo "http://".$_SERVER['SERVER_NAME']."/are/".$hash;
-
+	DB::table('shares')->insert(array(
+		'filename' 		=> $file,
+		'publicLink' 	=> $shareLink,
+		'copyRef'		=> $copyRef,
+		'urlHash'		=> $hash,
+		'timestamp'		=> time(),
+		'icon'			=> $icon,
+		'size'			=> $size
+	));
+	echo json_encode(array('url' => "http://".$_SERVER['SERVER_NAME']."/are/".$hash));
 });
 /*
 |--------------------------------------------------------------------------
