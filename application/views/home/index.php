@@ -94,7 +94,7 @@
 			<h2>#!/usr/bin/sharing</h2>
 
 			<p>
-				Drop.Sh/are make it super easy to share <a href="http://drpbox.com">Dropbox</a> files with anyone! 
+				Drop.Sh/are make it super easy to share <a href="http://dropbox.com">Dropbox</a> files with anyone! 
 			</p>
 			<?php
 				if($loggedIn)
@@ -109,7 +109,7 @@
 				else
 				{
 					?>
-					<h3><a href="/dropboxlink">Link Your Dropbox!</a></h3>
+					<h3><a href="/linkdropbox">Link Your Dropbox!</a></h3>
 					<?php
 				}
 				
