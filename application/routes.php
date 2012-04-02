@@ -55,6 +55,8 @@ Route::get('are/(:any)', function($hash)
 	if(DB::table('shares')->where('urlHash', '=', $hash)->count() !=1)
 		Redirect::to('404')->send();
 	$share = DB::table('shares')->where('urlHash', '=', $hash)->first();
+	if(!file_exists('/img/48x48/'.$share->icon.'.gif'))
+		$share->icon = 'page_white48';
 	return View::make('home.view')->with('share', $share);
 });
 
