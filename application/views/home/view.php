@@ -137,12 +137,14 @@
 			</p>
 			<table>
 				<tr>
-					<img src="/img/48x48/<?=$share->icon?>.gif">
-				</tr>
-				<tr>
-					<h3>File: <?=$share->filename?></h3>
-					<h3>Size: <?=$share->size?></h3>
-					<h3><a class="pubLink" href="<?=$share->publiclink?>"></a><a class="copyRef" href="/addToDB/<?=$share->copyref?>"></h3>
+					<td>
+						<img src="/img/48x48/<?=$share->icon?>.gif">
+					</td>
+					<td>
+						<h5>File: <?=$share->filename?></h5>
+						<h5>Size: <?=$share->size?></h5>
+						<h5><a class="pubLink" href="<?=$share->publiclink?>"></a><a class="copyRef" href="/addToDB/<?=$share->copyref?>"></h5>
+					</td>
 				</tr>
 			</table>
 			<?php
