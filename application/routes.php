@@ -37,7 +37,7 @@
 Route::get('/, are', function()
 {
 	session_start();
-	if(isset($_SESSION['dropbox_api']) && is_array($_SESSION['dropbox_api']))
+	if(isLoggedIn())
 	{
 		$dropbox = requireDropbox();
 		$loggedIn =true;
@@ -60,9 +60,10 @@ Route::get('dbtest', function()
 Route::get('linkdropbox', function()
 {
 	$dropbox = requireDropbox();
-	$dbid = Input::get('uid');
+	//I might log users later but for now I want complete transparency
+	/*$dbid = Input::get('uid');
 	$oauth_token = Input::get('oauth_token');
-	DB::table('users')->insert(array('dbid' => $dbid, 'accessKey'=>$oauth_token));
+	DB::table('users')->insert(array('dbid' => $dbid, 'accessKey'=>$oauth_token));*/
 	Redirect::to('are')->send();
 });
 
@@ -78,6 +79,37 @@ Route::get('session_debug', function()
 	session_start();
 	echo "<pre>";
 	return print_r($_SESSION,1);
+});
+
+
+Route::get('getDSLink', function()
+{
+	if(!isLoggedIn())
+		die(json_encode(array('error' => 'Dropbox is not linked!')));
+	$path = Input::get('file');
+	$pathArray = explode('/', $path);
+	$file = $pathArray[count($pathArray)-1];
+	$copyRef = $dropbox->getCopyRef($path);
+	$copyRef = $copyRef['body']->copy_ref;
+	$shareLink = $dropbox->media($path);
+	$shareLink = $shareLink['body']->url;
+	$hash = substr(md5($path.time()), 0, 10);
+
+	$hashCheckQuery = mysql_query("SELECT count(*) as count FROM shares WHERE urlHash='$hash'");
+	$hashCheck = mysql_fetch_array($hashCheckQuery);
+	while($hashCheck['count'] !=0)
+	{
+		$hash = substr(md5($path.time()), 0, 10);
+		$hashCheckQuery = mysql_query("SELECT count(*) as count FROM shares WHERE urlHash='$hash'");
+		$hashCheck = mysql_fetch_array($hashCheckQuery);
+
+	}
+
+	mysql_query("INSERT INTO shares (filename, publicLink, copyRef, urlHash, timestamp)VALUES('$file','$shareLink','$copyRef','$hash', NOW())");
+
+	//echo json_encode(array('url' => "http://".$_SERVER['SERVER_NAME']."/are/".$hash));
+	echo "http://".$_SERVER['SERVER_NAME']."/are/".$hash;
+
 });
 /*
 |--------------------------------------------------------------------------
@@ -151,6 +183,13 @@ Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('login');
 });
+function isLoggedIn()
+{
+	if(isset($_SESSION['dropbox_api']) && is_array($_SESSION['dropbox_api']))
+		return true;
+	else
+		return false;
+}
 
 function requireDropbox()
 {

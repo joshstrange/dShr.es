@@ -94,17 +94,35 @@
 			<h2>#!/usr/bin/sharing</h2>
 
 			<p>
-				Drop.Sh/are make it super easy to share <a href="http://dropbox.com">Dropbox</a> files with anyone! 
+				<a href="http://Drop.Sh/are">Drop.Sh/are</a> make it super easy to share <a href="http://dropbox.com">Dropbox</a> files with anyone! 
 			</p>
 			<?php
 				if($loggedIn)
 				{
 					?>
-						<h3>You are logged in!</h3>
+					<p>
+						To share files using <a href="http://Drop.Sh/are">Drop.Sh/are</a> all you have to do is move the file(s) you want to share into your /Apps/Drop.sh/ Folder and they will show up below! 
+					</p>
+
+					<h3>Your Files</h3>
 					<?php
-					echo "<code>";
-						print_r($dropbox->accountInfo());
-					echo "</code>";
+					$metaData = $dropbox->metaData('/');
+					$files = $metaData['body']->contents;
+					?>
+					<table>
+					<?php
+					foreach($files as $file)
+					{
+						$path = $file->path;
+						$filePathArray = explode('/',$path);
+						$filename = $filePathArray[count($filePathArray)-1];
+						print_r($file);
+						echo '<tr><td><img src="/img/16x16/'.$file->icon.'.gif"></td><td>'.$filename.'</td><td><a href="addShare.php?file='.$filename.'&path='.$path.'" class="getLink"></a></td></tr>';
+					}
+
+					?>
+					</table>
+					<?php
 				}
 				else
 				{
