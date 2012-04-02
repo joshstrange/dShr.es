@@ -128,7 +128,6 @@
 	</head>
 	<body>
 		<div id="main">
-			<?=die(print_r($share,1))?>
 			<h1>Drop.Sh/are<img style="float:right;" src="/img/dropshare-logo-150x200.png"></h1>
 
 			<h2>#!/usr/bin/sharing</h2>
@@ -143,7 +142,7 @@
 				<tr>
 					<h3>File: <?=$share->filename?></h3>
 					<h3>Size: <?=$share->size?></h3>
-					<h3><a class="pubLink" href="<?=$share->publicLink?>"></a><a class="copyRef" href="/addToDB/<?=$share->copyRef?>"></h3>
+					<h3><a class="pubLink" href="<?=$share->publiclink?>"></a><a class="copyRef" href="/addToDB/<?=$share->copyref?>"></h3>
 				</tr>
 			</table>
 			<?php
