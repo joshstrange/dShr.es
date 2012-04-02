@@ -93,7 +93,7 @@ Route::get('getDSLink', function()
 	$icon = Input::get('icon');
 	$pathArray = explode('/', $path);
 	$file = $pathArray[count($pathArray)-1];
-	$copyRef = $dropbox->getCopyRef($path);
+	$copyRef = $dropbox->copyRef($path);
 	$copyRef = $copyRef['body']->copy_ref;
 	$shareLink = $dropbox->media($path);
 	$shareLink = $shareLink['body']->url;
