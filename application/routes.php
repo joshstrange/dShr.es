@@ -84,6 +84,7 @@ Route::get('session_debug', function()
 
 Route::get('getDSLink', function()
 {
+	session_start();
 	if(!isLoggedIn())
 		die(json_encode(array('error' => 'Dropbox is not linked!')));
 	$dropbox = requireDropbox();
@@ -187,7 +188,6 @@ Route::filter('auth', function()
 });
 function isLoggedIn()
 {
-	session_start();
 	if(isset($_SESSION['dropbox_api']) && is_array($_SESSION['dropbox_api']))
 		return true;
 	else
