@@ -88,7 +88,7 @@ Route::get('getDSLink', function()
 	if(!isLoggedIn())
 		die(json_encode(array('error' => 'Dropbox is not linked!')));
 	$dropbox = requireDropbox();
-	$path = Input::get('file');
+	$path = Input::get('path');
 	$size = Input::get('size');
 	$icon = Input::get('icon');
 	$pathArray = explode('/', $path);
