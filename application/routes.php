@@ -99,7 +99,7 @@ Route::get('getDSLink', function()
 	$shareLink = $shareLink['body']->url;
 	$hash = substr(md5($path.time()), 0, 10);
 
-	while(DB::table('shares')->where('urlHash', '=', $hash)->only('count') !=0)
+	while(DB::table('shares')->where('urlHash', '=', $hash)->count() !=0)
 	{
 		$hash = substr(md5($path.time()), 0, 10);
 	}
