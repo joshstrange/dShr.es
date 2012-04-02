@@ -145,6 +145,8 @@
 						<h5>Size: <?=$share->size?></h5>
 					</td>
 				</tr>
+			</table>
+			<table>
 				<tr>
 					<td>
 						<a class="pubLink" href="<?=$share->publiclink?>"></a>
