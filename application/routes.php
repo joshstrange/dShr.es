@@ -187,6 +187,7 @@ Route::filter('auth', function()
 });
 function isLoggedIn()
 {
+	session_start();
 	if(isset($_SESSION['dropbox_api']) && is_array($_SESSION['dropbox_api']))
 		return true;
 	else
