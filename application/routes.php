@@ -48,8 +48,8 @@ Route::get('dbtest', function()
 
 Route::get('session_debug', function()
 {
-	echo "<pre>";
 	session_start();
+	echo "<pre>";
 	return print_r($_SESSION,1);
 });
 /*
