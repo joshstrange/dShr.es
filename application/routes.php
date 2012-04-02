@@ -33,15 +33,17 @@
 |
 */
 
-Route::get('/', function()
+
+Route::get('/, are', function()
 {
 	return View::make('home.index');
 });
 
 
-Route::get('env', function()
+Route::get('dbtest', function()
 {
-	return getenv('HTTP_SERVER');
+	$dropbox = requireDropbox();
+	return print_r($dropbox->accountInfo(),1);
 });
 /*
 |--------------------------------------------------------------------------
@@ -115,3 +117,23 @@ Route::filter('auth', function()
 {
 	if (Auth::guest()) return Redirect::to('login');
 });
+
+function requireDropbox()
+{
+	// Register a simple autoload function
+	spl_autoload_register(function($class){
+		$class = str_replace('\\', '/', $class);
+		require_once('../lib/' . $class . '.php');
+	});
+	// Check whether to use HTTPS and set the callback URL
+	$protocol = (!empty($_SERVER['HTTPS'])) ? 'https' : 'http';
+	$callback = $protocol . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
+	// Instantiate the required Dropbox objects
+	$encrypter = new \Dropbox\OAuth\Storage\Encrypter('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
+	$storage = new \Dropbox\OAuth\Storage\Session($encrypter);
+	$OAuth = new \Dropbox\OAuth\Consumer\Curl(getenv('HTTP_DROPBOX_KEY'), getenv('HTTP_DROPBOX_SECRET'), $storage, $callback);
+	$dropbox = new \Dropbox\API($OAuth);
+	return $dropbox;
+
+}

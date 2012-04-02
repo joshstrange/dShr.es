@@ -12,3 +12,6 @@ SetEnv HTTP_MYSQL_USER user
 SetEnv HTTP_MYSQL_PASS password
 
 SetEnv HTTP_LARAVEL_KEY key
+
+SetEnv HTTP_DROPBOX_KEY key
+SetEnv HTTP_DROPBOX_SECRET secret
