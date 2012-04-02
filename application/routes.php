@@ -50,12 +50,12 @@ Route::get('/, are', function()
 	return View::make('home.index')->with('loggedIn', $loggedIn)->with('dropbox', $dropbox);
 });
 
-Route::get('are/(:hash)/(:added?)', function($hash,$added=false)
+Route::get('are/(:hash)', function($hash)
 {
 	if(DB::table('shares')->where('urlHash', '=', $hash)->count() !=1)
 		Redirect::to('404')->send();
 	$share = DB::table('shares')->where('urlHash', '=', $hash)->first();
-	return View::make('view.index')->with('share', $share)->with('added',$added);
+	return View::make('view.index')->with('share', $share);
 });
 
 Route::get('linkdropbox', function()

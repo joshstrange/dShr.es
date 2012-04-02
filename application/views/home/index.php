@@ -99,6 +99,9 @@
 				background-position: 0 0;
 				cursor:pointer;
 			}
+			#main input{
+				width:158px;
+			}
 		</style>
 		<script type="text/javascript">
             $(function() {
