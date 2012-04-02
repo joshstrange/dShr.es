@@ -6,4 +6,9 @@ RewriteCond %{REQUEST_FILENAME} !-d
 
 RewriteRule . index.php [L]
 
-SetEnv HTTP_SERVER test
+SetEnv HTTP_MYSQL_HOST host
+SetEnv HTTP_MYSQL_DB database
+SetEnv HTTP_MYSQL_USER user
+SetEnv HTTP_MYSQL_PASS password
+
+SetEnv HTTP_LARAVEL_KEY key
