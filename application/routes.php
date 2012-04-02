@@ -39,7 +39,7 @@ Route::get('/', function()
 });
 
 
-Route::testEnv('env', function()
+Route::get('env', function()
 {
 	return getenv('HTTP_SERVER');
 });
