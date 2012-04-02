@@ -46,6 +46,14 @@ Route::get('dbtest', function()
 	return print_r($dropbox->accountInfo(),1);
 });
 
+Route::get('linkdropbox', function()
+{
+	$dropbox = requireDropbox();
+	//Redirect::to('are')->send();
+});
+
+
+
 Route::get('session_debug', function()
 {
 	session_start();
