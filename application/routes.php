@@ -50,7 +50,7 @@ Route::get('/, are', function()
 	return View::make('home.index')->with('loggedIn', $loggedIn)->with('dropbox', $dropbox);
 });
 
-Route::get('are/(:hash)', function($hash)
+Route::get('are/(:any)', function($hash)
 {
 	if(DB::table('shares')->where('urlHash', '=', $hash)->count() !=1)
 		Redirect::to('404')->send();
