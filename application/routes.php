@@ -38,6 +38,11 @@ Route::get('/', function()
 	return View::make('home.index');
 });
 
+
+Route::testEnv('env', function()
+{
+	return getenv('HTTP_SERVER');
+});
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
