@@ -99,6 +99,31 @@
 				background-position: 0 0;
 				cursor:pointer;
 			}
+			.pubLink {
+				display: inline-block;
+				width: 160px;
+				height: 23px;
+				background: url('/img/downloadNow.png') bottom;
+				vertical-align: middle;
+				/*text-indent: -99999px;*/
+			}
+			.pubLink:hover {
+				background-position: 0 0;
+				cursor:pointer;
+			}
+
+			.copyRef {
+				display: inline-block;
+				width: 160px;
+				height: 23px;
+				background: url('/img/copyToDB.png') bottom;
+				vertical-align: middle;
+				/*text-indent: -99999px;*/
+			}
+			.copyRef:hover {
+				background-position: 0 0;
+				cursor:pointer;
+			}
 		</style>
 		<script type="text/javascript">
             $(function() {
@@ -127,42 +152,18 @@
 			<p>
 				<a href="http://Drop.Sh/are">Drop.Sh/are</a> make it super easy to share <a href="http://dropbox.com">Dropbox</a> files with anyone! 
 			</p>
+			<table>
+				<tr>
+					<img src="/img/48x48/<?=$share['icon']?>.gif">
+				</tr>
+				<tr>
+					<h3>File: <?=$share['filename']?></h3>
+					<h3>Size: <?=$share['size']?></h3>
+					<h3><a class="pubLink" href="<?=$share['publicLink']?>"></a><a class="copyRef" href="/addToDB/<?=$share['copyRef']?>"></h3>
+				</tr>
+			</table>
 			<?php
-				if($loggedIn)
-				{
-					?>
-					<p>
-						To share files using <a href="http://Drop.Sh/are">Drop.Sh/are</a> all you have to do is move the file(s) you want to share into your /Apps/Drop.sh/ Folder and they will show up below! 
-					</p>
-
-					<h3>Your Files</h3>
-					<?php
-					$metaData = $dropbox->metaData('/');
-					$files = $metaData['body']->contents;
-					?>
-					<table>
-					<?php
-					$count =0;
-					foreach($files as $file)
-					{
-						$count++;
-						$path = $file->path;
-						$filePathArray = explode('/',$path);
-						$filename = $filePathArray[count($filePathArray)-1];
-						//print_r($file);
-						echo '<tr><td><img src="/img/16x16/'.$file->icon.'.gif"></td><td>'.$filename.'</td><td id="dbshare_'.$count.'"><a href="javascript:getLink(\''.$path.'\',\''.$file->icon.'\',\''.$file->size.'\',\''.$count.'\')" class="getLink"></a></td></tr>';
-					}
-
-					?>
-					</table>
-					<?php
-				}
-				else
-				{
-					?>
-					<h3><a href="/linkdropbox">Link Your Dropbox!</a></h3>
-					<?php
-				}
+				
 				
 			?>
 		</div>

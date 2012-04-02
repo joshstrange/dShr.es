@@ -50,11 +50,12 @@ Route::get('/, are', function()
 	return View::make('home.index')->with('loggedIn', $loggedIn)->with('dropbox', $dropbox);
 });
 
-
-Route::get('dbtest', function()
+Route::get('are/(:hash)/(:added?)', function($hash,$added=false)
 {
-	$dropbox = requireDropbox();
-	return print_r($dropbox->accountInfo(),1);
+	if(DB::table('shares')->where('urlHash', '=', $hash)->count() !=1)
+		Redirect::to('404')->send();
+	$share = DB::table('shares')->where('urlHash', '=', $hash)->first();
+	return View::make('view.index')->with('share', $share)->with('added',$added);
 });
 
 Route::get('linkdropbox', function()
@@ -73,14 +74,6 @@ Route::get('logout', function()
 	session_destroy();
 	Redirect::to('are')->send();
 });
-
-Route::get('session_debug', function()
-{
-	session_start();
-	echo "<pre>";
-	return print_r($_SESSION,1);
-});
-
 
 Route::get('getDSLink', function()
 {
