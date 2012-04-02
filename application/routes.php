@@ -66,7 +66,12 @@ Route::get('linkdropbox', function()
 	Redirect::to('are')->send();
 });
 
-
+Route::get('logout', function()
+{
+	session_start();
+	session_destroy();
+	Redirect::to('are')->send();
+});
 
 Route::get('session_debug', function()
 {
