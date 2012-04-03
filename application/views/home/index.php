@@ -118,11 +118,9 @@
 					url : 'fileupload',
 					flash_swf_url : '/lib/plupload.flash.swf',
 					silverlight_xap_url : '/lib/plupload.silverlight.xap',
+					drop_element: 'dropfile'
 				});
 
-				uploader.bind('Init', function(up, params) {
-					$('#filelist').html("<div>Current runtime: " + params.runtime + "</div>");
-				});
 
 				$('#uploadfiles').click(function(e) {
 					uploader.start();
@@ -231,6 +229,7 @@
 					<div id="container">
 						<div id="filelist">No runtime found.</div>
 						<br />
+						<div id="dropfile" style="width:500px;height:500px;background-color:green;">Drop Files Here</div>
 						<a id="pickfiles" href="#">[Select files]</a>
 						<a id="uploadfiles" href="#">[Upload files]</a>
 					</div>
