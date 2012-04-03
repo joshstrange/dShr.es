@@ -179,7 +179,7 @@
 						<a class="pubLink" href="<?=$share->publiclink?>"></a>
 					</td>
 					<td>
-						<a class="copyRef" id="copyRef" href="javascrpt:copyToDB('<?=$share->copyref?>')"></a>
+						<a class="copyRef" id="copyRef" href="javascript:copyToDB('<?=$share->copyref?>')"></a>
 					</td>
 				</tr>
 			</table>
