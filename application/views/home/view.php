@@ -131,17 +131,18 @@
             });
             function copyToDB(copyRef)
             {
+				$('#copyRef').attr('href', '#');
 				$('#copyRef').css('background-image', 'url(http://drop.sh/img/btn-copying-1.png)');
-				var interval = setInterval("copying()",1000);
-				/*$.getJSON('/addToDB/'+copyRef, function(data) {
+				var interval = setInterval("copying()",250);
+				$.getJSON('/addToDB/'+copyRef, function(data) {
 					if(!data.error)
 					{
-						var link = data.url;
-						$('#dbshare_'+pos).html('<input value="'+link+'">');
+						clearInterval(interval);
+						$('#copyRef').css('background-image', 'url(http://drop.sh/img/btn-copied.png)');
 					}
 					else
 						alert(data.error)
-				});*/
+				});
             }
             function copying()
             {
