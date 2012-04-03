@@ -131,7 +131,7 @@
             });
             function copyToDB(copyRef)
             {
-				$('copyRef').css('background-image','/img/btn-copying-1.png');
+				$('copyRef').css('background-image', 'url(/img/btn-copying-1.png)');
 				var interval = setInterval("copying()",5000);
 				/*$.getJSON('/addToDB/'+copyRef, function(data) {
 					if(!data.error)
