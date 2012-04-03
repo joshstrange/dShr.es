@@ -145,7 +145,7 @@
             }
             function copying()
             {
-            	var image = ('copyRef').css('background-image');
+            	var image = $('copyRef').css('background-image');
             	alert(image);
             	/*var number = image.replace('url(http://drop.sh/img/btn-copying-1','');
             	background-image: url(http://drop.sh/img/downloadNow.png);*/
