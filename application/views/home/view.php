@@ -161,7 +161,7 @@
 	</head>
 	<body>
 		<div id="main">
-			<h1>Drop.Sh/are<img style="float:right;" src="/img/dropshare-logo-150x200.png"></h1>
+			<a href="/are"><h1>Drop.Sh/are<img style="float:right;" src="/img/dropshare-logo-150x200.png"></h1></a>
 
 			<h2>#!/usr/bin/sharing</h2>
 
