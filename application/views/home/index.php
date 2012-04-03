@@ -109,7 +109,7 @@
 				cursor:pointer;
 			}
 			#main input{
-				width:158px;
+				width:181px;
 			}
 		</style>
 		<script type="text/javascript">
@@ -123,7 +123,7 @@
 					if(!data.error)
 					{
 						var link = data.url;
-						$('#dbshare_'+pos).html('<input value="'+link+'">');
+						//$('#dbshare_'+pos).html('<input value="'+link+'">');
 					}
 					else
 						alert(data.error)
