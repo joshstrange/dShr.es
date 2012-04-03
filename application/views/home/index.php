@@ -107,6 +107,11 @@
 			#main input{
 				width:175px;
 			}
+			#dropfile {
+				width:700px;
+				height:600px;
+				background:url('/img/back-dropfile.png');
+			}
 		</style>
 		<script type="text/javascript">
             $(function() {
@@ -227,9 +232,9 @@
 					</table>
 					<h3>Upload a file</h3>
 					<div id="container">
-						<div id="filelist">No runtime found.</div>
+						<div id="filelist"></div>
 						<br />
-						<div id="dropfile" style="width:500px;height:500px;background-color:green;">Drop Files Here</div>
+						<div id="dropfile">Drop Files Here</div>
 						<a id="pickfiles" href="#">[Select files]</a>
 						<a id="uploadfiles" href="#">[Upload files]</a>
 					</div>
