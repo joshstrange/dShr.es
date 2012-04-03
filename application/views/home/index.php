@@ -6,6 +6,10 @@
 		<title>Drop.Sh/are - #!/usr/bin/sharing</title>
 		<link rel="icon" type="image/png" href="/favicon.png">
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
+		<script src="/js/jquery.ui.widget.js"></script>
+		<script src="/js/jquery.iframe-transport.js"></script>
+		<script src="/js/jquery.fileupload.js"></script>
 		<style>
 			@import url(http://fonts.googleapis.com/css?family=Ubuntu);
 
@@ -108,7 +112,14 @@
 		</style>
 		<script type="text/javascript">
             $(function() {
-
+				$('#fileupload').fileupload({
+				        dataType: 'json',
+				        done: function (e, data) {
+				            $.each(data.result, function (index, file) {
+				                $('<p/>').text(file.name).appendTo(document.body);
+				            });
+				        }
+				    });
             });
             function getLink(path,icon,size,pos)
             {
@@ -177,6 +188,10 @@
 
 					?>
 					</table>
+					<h3>Upload a file</h3>
+					<form id="fileupload" action="/fileupload" method="POST" enctype="multipart/form-data">
+					    <input type="file" name="files[]" multiple>
+					</form>
 					<?php
 				}
 				else
@@ -187,6 +202,7 @@
 				}
 				
 			?>
+
 		</div>
 	</body>
 </html>
