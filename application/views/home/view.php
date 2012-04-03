@@ -103,7 +103,7 @@
 				display: inline-block;
 				width: 181px;
 				height: 27px;
-				background: url('/img/btn-download-now.png') bottom;
+				background: url('/img/btn-download.png') bottom;
 				vertical-align: middle;
 				/*text-indent: -99999px;*/
 			}
