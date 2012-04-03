@@ -118,7 +118,7 @@
             });
             function getLink(path,icon,size,pos)
             {
-				$('#dbshare_'+pos).html('<span class="ajax"></span>')
+				$('#dbshare_'+pos+' a').html('<span class="ajax"></span>')
 				$.getJSON('/getDSLink?path='+path+'&icon='+icon+'&size='+size, function(data) {
 					if(!data.error)
 					{
