@@ -132,7 +132,7 @@
             function copyToDB(copyRef)
             {
 				$('#copyRef').css('background-image', 'url(http://drop.sh/img/btn-copying-1.png)');
-				var interval = setInterval("copying()",5000);
+				var interval = setInterval("copying()",1000);
 				/*$.getJSON('/addToDB/'+copyRef, function(data) {
 					if(!data.error)
 					{
@@ -146,10 +146,11 @@
             function copying()
             {
             	var image = $('#copyRef').css('background-image');
-            	alert(image);
             	var number = image.replace('url(http://drop.sh/img/btn-copying-','');
             	number = number.replace('.png)','');
-            	alert(number);
+            	if(number==4) number=0;
+            	number++;
+            	$('#copyRef').css('background-image', 'url(http://drop.sh/img/btn-copying-'+number+'.png)');
 
             }
         </script>
