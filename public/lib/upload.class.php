@@ -277,8 +277,22 @@ class UploadHandler
                         FILE_APPEND
                     );
                 } else {
-                    die(print_r($uploaded_file,1));
-                    move_uploaded_file($uploaded_file, $file_path); 
+                    // Register a simple autoload function
+                    spl_autoload_register(function($class){
+                        $class = str_replace('\\', '/', $class);
+                        require_once('' . $class . '.php');
+                    });
+                    // Check whether to use HTTPS and set the callback URL
+                    $protocol = (!empty($_SERVER['HTTPS'])) ? 'https' : 'http';
+                    $callback = $protocol . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+
+                    // Instantiate the required Dropbox objects
+                    $encrypter = new \Dropbox\OAuth\Storage\Encrypter('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
+                    $storage = new \Dropbox\OAuth\Storage\Session($encrypter);
+                    $OAuth = new \Dropbox\OAuth\Consumer\Curl(getenv('HTTP_DROPBOX_KEY'), getenv('HTTP_DROPBOX_SECRET'), $storage, $callback);
+                    $dropbox = new \Dropbox\API($OAuth);
+                    $dropbox->putFile($uploaded_file, $file->name,'/', false);
+                    //move_uploaded_file($uploaded_file, $file_path); 
 
                 }
             } else {
