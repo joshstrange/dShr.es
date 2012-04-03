@@ -89,9 +89,9 @@
 
 			.getLink {
 				display: inline-block;
-				width: 160px;
-				height: 23px;
-				background: url('/img/getLink.png') bottom;
+				width: 181px;
+				height: 27px;
+				background: url('/img/btn-get-dropbox-link.png') bottom;
 				vertical-align: middle;
 				/*text-indent: -99999px;*/
 			}
@@ -101,9 +101,9 @@
 			}
 			.pubLink {
 				display: inline-block;
-				width: 160px;
-				height: 23px;
-				background: url('/img/downloadNow.png') bottom;
+				width: 181px;
+				height: 27px;
+				background: url('/img/btn-download-now.png') bottom;
 				vertical-align: middle;
 				/*text-indent: -99999px;*/
 			}
@@ -114,9 +114,9 @@
 
 			.copyRef {
 				display: inline-block;
-				width: 160px;
-				height: 23px;
-				background: url('/img/copyToDB.png') bottom;
+				width: 181px;
+				height: 27px;
+				background: url('/img/btn-copy-to-your-dropbox.png') bottom;
 				vertical-align: middle;
 				/*text-indent: -99999px;*/
 			}
@@ -125,6 +125,33 @@
 				cursor:pointer;
 			}
 		</style>
+		<script type="text/javascript">
+            $(function() {
+
+            });
+            function copyToDB(copyRef)
+            {
+				$('copyRef').css('background-image','/img/btn-copying-1.png');
+				var interval = setInterval("copying()",5000);
+				/*$.getJSON('/addToDB/'+copyRef, function(data) {
+					if(!data.error)
+					{
+						var link = data.url;
+						$('#dbshare_'+pos).html('<input value="'+link+'">');
+					}
+					else
+						alert(data.error)
+				});*/
+            }
+            function copying()
+            {
+            	var image = ('copyRef').css('background-image');
+            	alert(image);
+            	/*var number = image.replace('url(http://drop.sh/img/btn-copying-1','');
+            	background-image: url(http://drop.sh/img/downloadNow.png);*/
+
+            }
+        </script>
 	</head>
 	<body>
 		<div id="main">
@@ -152,7 +179,7 @@
 						<a class="pubLink" href="<?=$share->publiclink?>"></a>
 					</td>
 					<td>
-						<a class="copyRef" href="/addToDB/<?=$share->copyref?>"></a>
+						<a class="copyRef" id="copyRef" href="javascrpt:copyToDB('<?=$share->copyref?>'')"></a>
 					</td>
 				</tr>
 			</table>

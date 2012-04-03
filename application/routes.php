@@ -103,12 +103,28 @@ Route::get('getDSLink', function()
 		'publicLink' 	=> $shareLink,
 		'copyRef'		=> $copyRef,
 		'urlHash'		=> $hash,
-		'timestamp'		=> time(),
 		'icon'			=> $icon,
 		'size'			=> $size
 	));
 	echo json_encode(array('url' => "http://".$_SERVER['SERVER_NAME']."/are/".$hash));
 });
+
+Route::get('addToDB/(:any)', function($hash)
+{
+	session_start();
+	if(!isLoggedIn())
+		die(json_encode(array('error' => 'Dropbox is not linked!')));
+	$dropbox = requireDropbox();
+	
+	$hash = preg_replace("/^A-Za-z0-9/i", "", $hash);
+	if(DB::table('shares')->where('urlHash', '=', $hash)->count() !=1)
+		die("Hash not found");
+	$share = DB::table('shares')->where('urlHash', '=', $hash)->first();
+	$dropbox->copyRef($share->copyref,'/'.$share->filename);
+	echo json_encode(array('message' => "File Copied!"));
+});
+
+
 /*
 |--------------------------------------------------------------------------
 | Application 404 & 500 Error Handlers
