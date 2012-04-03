@@ -120,7 +120,7 @@ Route::get('addToDB/(:any)', function($hash)
 	if(DB::table('shares')->where('urlHash', '=', $hash)->count() !=1)
 		die("Hash not found");
 	$share = DB::table('shares')->where('urlHash', '=', $hash)->first();
-	$dropbox->copyRef($share->copyref,'/'.$share->filename); // Turned off while testing
+	$dropbox->copy(null,'/'.$share->filename,$share->copyref); // Turned off while testing
 	echo json_encode(array('message' => "File Copied!", 'error'=>false));
 });
 

@@ -101,7 +101,7 @@
 				cursor:pointer;
 			}
 			#main input{
-				width:181px;
+				width:175px;
 			}
 		</style>
 		<script type="text/javascript">
@@ -118,6 +118,8 @@
 						clearInterval(interval);
 						var link = data.url;
 						$('#dbshare_'+pos).html('<input value="'+link+'">');
+						$('#dbshare_'+pos+' input').focus();
+						$('#dbshare_'+pos+' input').select();
 					}
 					else
 						alert(data.error)
