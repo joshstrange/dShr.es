@@ -129,12 +129,12 @@
             $(function() {
 
             });
-            function copyToDB(copyRef)
+            function copyToDB(hash)
             {
 				$('#copyRef').attr('href', '#');
 				$('#copyRef').css('background-image', 'url(http://drop.sh/img/btn-copying-1.png)');
 				var interval = setInterval("copying()",250);
-				$.getJSON('/addToDB/'+copyRef, function(data) {
+				$.getJSON('/addToDB/'+hash, function(data) {
 					if(!data.error)
 					{
 						clearInterval(interval);
@@ -182,7 +182,7 @@
 						<a class="pubLink" href="<?=$share->publiclink?>"></a>
 					</td>
 					<td>
-						<a class="copyRef" id="copyRef" href="javascript:copyToDB('<?=$share->copyref?>')"></a>
+						<a class="copyRef" id="copyRef" href="javascript:copyToDB('<?=$share->urlhash?>')"></a>
 					</td>
 				</tr>
 			</table>
