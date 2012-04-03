@@ -96,7 +96,7 @@
 				/*text-indent: -99999px;*/
 			}
 			.getLink .ajax {
-				background-image: url('/img/ajax.gif');
+				background-image: url('/img/ajax.png');
 				width: 16px;
 				height: 16px;
 				z-index: 10;
