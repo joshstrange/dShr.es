@@ -17,7 +17,9 @@
 				min-width: 800px;
 				padding: 0;
 			}
-
+			body a, body a:visited, body a:hover, body a:active {
+				color: #6d6d6d;
+			}
 			#main {
 				background-clip: padding-box;
 				background-color: #fff;
