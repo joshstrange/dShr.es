@@ -131,7 +131,7 @@
             });
             function copyToDB(copyRef)
             {
-				$('copyRef').css('background', 'url(\'/img/btn-copying-1.png\') bottom');
+				$('#copyRef').css('background-image', 'url(\'/img/btn-copying-1.png\')');
 				var interval = setInterval("copying()",5000);
 				/*$.getJSON('/addToDB/'+copyRef, function(data) {
 					if(!data.error)
@@ -145,7 +145,7 @@
             }
             function copying()
             {
-            	var image = $('copyRef').css('background');
+            	var image = $('#copyRef').css('background-image');
             	alert(image);
             	/*var number = image.replace('url(http://drop.sh/img/btn-copying-1','');
             	background-image: url(http://drop.sh/img/downloadNow.png);*/
