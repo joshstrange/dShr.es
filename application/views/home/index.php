@@ -95,15 +95,6 @@
 				vertical-align: middle;
 				/*text-indent: -99999px;*/
 			}
-			.getLink .ajax {
-				background-image: url('/img/ajax.gif');
-				width: 16px;
-				height: 16px;
-				z-index: 10;
-				float: right;
-				margin-top: 6px;
-				margin-right: 2px;
-			}
 			.getLink:hover {
 				background-position: 0 0;
 				cursor:pointer;
@@ -118,16 +109,28 @@
             });
             function getLink(path,icon,size,pos)
             {
-				$('#dbshare_'+pos+' a').html('<span class="ajax"></span>')
+				$('#dbshare_'+pos+' a').css('background-image', 'url(http://drop.sh/img/btn-retrieving-link-1.png)');
+				var interval = setInterval("waiting()",250);
 				$.getJSON('/getDSLink?path='+path+'&icon='+icon+'&size='+size, function(data) {
 					if(!data.error)
 					{
+						clearInterval(interval);
 						var link = data.url;
 						//$('#dbshare_'+pos).html('<input value="'+link+'">');
 					}
 					else
 						alert(data.error)
 				});
+            }
+            function waiting()
+            {
+            	var image = $('#copyRef').css('background-image');
+            	var number = image.replace('url(http://drop.sh/img/btn-retrieving-link-','');
+            	number = number.replace('.png)','');
+            	if(number==4) number=0;
+            	number++;
+            	$('#copyRef').css('background-image', 'url(http://drop.sh/img/btn-retrieving-link-'+number+'.png)');
+
             }
         </script>
 	</head>
