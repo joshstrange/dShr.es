@@ -116,7 +116,7 @@
 					{
 						clearInterval(interval);
 						var link = data.url;
-						//$('#dbshare_'+pos).html('<input value="'+link+'">');
+						$('#dbshare_'+pos).html('<input value="'+link+'">');
 					}
 					else
 						alert(data.error)
