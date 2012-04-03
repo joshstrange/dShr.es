@@ -1,48 +1,17 @@
-## Laravel - A PHP Framework For Web Artisans
+## Drop.Sh/are
 
-Laravel is a clean and classy framework for PHP web development. Freeing you from spaghetti code, Laravel helps you create wonderful applications using simple, expressive syntax. Development should be a creative experience that you enjoy, not something that is painful. Enjoy the fresh air.
+Drop.Sh/are is an easy way to send and recieve Dropbox files. Every file you share has the option of being downloaded directly or copied into the user's own Dropbox folder
 
-### [Official Website & Documentation](http://laravel.com)
+### [Drop.Sh/are](http://drop.sh/are)
 
-### Feature Overview
+### About Drop.Sh/are
 
-- Simple routing using Closures or controllers.
-- Views and templating.
-- Driver based session and cache handling.
-- Database abstraction with query builder.
-- Authentication.
-- Migrations.
-- PHPUnit Integration.
-- A lot more.
+Drop.Sh/are is built on top of Laravel and all of it's source code is right here! The code is messy but it works. Feel free to improve on it, I will accept Pull requests.
 
-### A Few Examples
+### About Me
 
-**Hello World:**
-
-	Route::get('/', function()
-	{
-		return "Hello World!":
-	});
-
-**Passing Data To Views:**
-
-	Route::get('user/(:num)', function($id)
-	{
-		$user = DB::table('users')->find($id);
-
-		return View::make('profile')->with('user', $user);
-	});
-
-**Redirecting & Flashing Data To The Session:**
-
-	return Redirect::to('profile')->with('message', 'Welcome Back!');
-
-### Contributing to Laravel
-
-Contributions are encouraged and welcome; however, please review the Developer Certificate of Origin in the "license.txt" file included in the repository. All commits must be signed off using the "-s" switch.
-
-	git commit -s -m "this commit will be signed off automatically!"
+My name is [Josh Strange](http://josh.vc) and I am a web and mobile developer living in Lexington, KY. I built Drop.Sh/are in my free time and kept it open source so that I could give back and so that I could better learn how to use git. 
 
 ### License
 
-Laravel is open-sourced software licensed under the MIT License.
+Drop.Sh/are is open-sourced software licensed under the MIT License.
