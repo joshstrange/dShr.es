@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 
 		<title>Drop.Sh/are - #!/usr/bin/sharing</title>
-		<link rel="icon" type="image/png" href="favicon.png">
+		<link rel="icon" type="image/png" href="/favicon.png">
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<style>
 			@import url(http://fonts.googleapis.com/css?family=Ubuntu);
