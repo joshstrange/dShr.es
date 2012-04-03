@@ -262,7 +262,7 @@
 
 				uploader.bind('UploadProgress', function(up, file) {
 					//$('#' + file.id + " b").html(file.percent + "%");
-					$('#p_' + file.id).css('width',file.percent + "%");
+					$('#p_' + file.id+' span').css('width',file.percent + "%");
 				});
 
 				uploader.bind('Error', function(up, err) {
