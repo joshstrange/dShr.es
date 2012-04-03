@@ -6,10 +6,8 @@
 		<title>Drop.Sh/are - #!/usr/bin/sharing</title>
 		<link rel="icon" type="image/png" href="/favicon.png">
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.18/jquery-ui.min.js"></script>
-		<script src="/js/jquery.ui.widget.js"></script>
-		<script src="/js/jquery.iframe-transport.js"></script>
-		<script src="/js/jquery.fileupload.js"></script>
+		<script type="text/javascript" src="http://bp.yahooapis.com/2.4.21/browserplus-min.js"></script>
+		<script type="text/javascript" src="/js/plupload.full.js"></script>
 		<style>
 			@import url(http://fonts.googleapis.com/css?family=Ubuntu);
 
@@ -112,14 +110,55 @@
 		</style>
 		<script type="text/javascript">
             $(function() {
-				$('#fileupload').fileupload({
-				        dataType: 'json',
-				        done: function (e, data) {
-				            $.each(data.result, function (index, file) {
-				                $('<p/>').text(file.name).appendTo(document.body);
-				            });
-				        }
-				    });
+				var uploader = new plupload.Uploader({
+					runtimes : 'gears,html5,flash,silverlight,browserplus',
+					browse_button : 'pickfiles',
+					container : 'container',
+					max_file_size : '10mb',
+					url : 'fileupload',
+					flash_swf_url : '/lib/plupload.flash.swf',
+					silverlight_xap_url : '/lib/plupload.silverlight.xap',
+				});
+
+				uploader.bind('Init', function(up, params) {
+					$('#filelist').html("<div>Current runtime: " + params.runtime + "</div>");
+				});
+
+				$('#uploadfiles').click(function(e) {
+					uploader.start();
+					e.preventDefault();
+				});
+
+				uploader.init();
+
+				uploader.bind('FilesAdded', function(up, files) {
+					$.each(files, function(i, file) {
+						$('#filelist').append(
+							'<div id="' + file.id + '">' +
+							file.name + ' (' + plupload.formatSize(file.size) + ') <b></b>' +
+						'</div>');
+					});
+
+					up.refresh(); // Reposition Flash/Silverlight
+				});
+
+				uploader.bind('UploadProgress', function(up, file) {
+					$('#' + file.id + " b").html(file.percent + "%");
+				});
+
+				uploader.bind('Error', function(up, err) {
+					$('#filelist').append("<div>Error: " + err.code +
+						", Message: " + err.message +
+						(err.file ? ", File: " + err.file.name : "") +
+						"</div>"
+					);
+
+					up.refresh(); // Reposition Flash/Silverlight
+				});
+
+				uploader.bind('FileUploaded', function(up, file) {
+					$('#' + file.id + " b").html("100%");
+				});
             });
             function getLink(path,icon,size,pos)
             {
@@ -189,9 +228,12 @@
 					?>
 					</table>
 					<h3>Upload a file</h3>
-					<form id="fileupload" action="/fileupload" method="POST" enctype="multipart/form-data">
-					    <input type="file" name="files[]" multiple>
-					</form>
+					<div id="container">
+						<div id="filelist">No runtime found.</div>
+						<br />
+						<a id="pickfiles" href="#">[Select files]</a>
+						<a id="uploadfiles" href="#">[Upload files]</a>
+					</div>
 					<?php
 				}
 				else
