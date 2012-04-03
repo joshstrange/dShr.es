@@ -110,7 +110,7 @@
             function getLink(path,icon,size,pos)
             {
 				$('#dbshare_'+pos+' a').css('background-image', 'url(http://drop.sh/img/btn-retrieving-link-1.png)');
-				var interval = setInterval("waiting()",250);
+				var interval = setInterval("waiting("+pos+")",250);
 				$.getJSON('/getDSLink?path='+path+'&icon='+icon+'&size='+size, function(data) {
 					if(!data.error)
 					{
@@ -122,14 +122,14 @@
 						alert(data.error)
 				});
             }
-            function waiting()
+            function waiting(pos)
             {
-            	var image = $('#copyRef').css('background-image');
+            	var image = $('#dbshare_'+pos+' a').css('background-image');
             	var number = image.replace('url(http://drop.sh/img/btn-retrieving-link-','');
             	number = number.replace('.png)','');
             	if(number==4) number=0;
             	number++;
-            	$('#copyRef').css('background-image', 'url(http://drop.sh/img/btn-retrieving-link-'+number+'.png)');
+            	$('#dbshare_'+pos+' a').css('background-image', 'url(http://drop.sh/img/btn-retrieving-link-'+number+'.png)');
 
             }
         </script>
