@@ -91,9 +91,18 @@
 				display: inline-block;
 				width: 160px;
 				height: 23px;
-				background: url('/img/getLink.png') bottom;
+				background: url('/img/get-dropshare-link.png') bottom;
 				vertical-align: middle;
 				/*text-indent: -99999px;*/
+			}
+			.getLink .ajax {
+				background-image: url('/img/ajax.gif');
+				width: 16px;
+				height: 11px;
+				z-index: 10;
+				float: right;
+				margin-top: 5px;
+				margin-right: 10px;
 			}
 			.getLink:hover {
 				background-position: 0 0;
@@ -109,6 +118,7 @@
             });
             function getLink(path,icon,size,pos)
             {
+				$('#dbshare_'+pos).html('<span class="ajax"></span>')
 				$.getJSON('/getDSLink?path='+path+'&icon='+icon+'&size='+size, function(data) {
 					if(!data.error)
 					{
