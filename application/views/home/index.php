@@ -109,10 +109,18 @@
 			}
 			#dropfile {
 				width:700px;
-				height:600px;
-				background:url('/img/back-dropfile.png');
+				height:300px;
+				border-radius:10;
+				background:#EEE;
 			}
-					.meter { 
+			#dropfile #logo {
+				float: right;
+				margin-right:10px;
+				background:url('/img/back-dropfile.png');
+				width:300px;
+				height:300px;
+			}
+			.meter { 
 			height: 20px;  /* Can be anything */
 			position: relative;
 			margin: 60px 0 20px 0; /* Just for demo spacing */
@@ -277,7 +285,7 @@
 
 				uploader.bind('FileUploaded', function(up, file) {
 					//$('#' + file.id + " b").html("100%");
-					$('#' + file.id + " b").fadeOut();
+					$('#p_' + file.id + "").hide();
 				});
             });
             function getLink(path,icon,size,pos)
@@ -349,9 +357,9 @@
 					</table>
 					<h3>Upload a file</h3>
 					<div id="container">
-						<div id="filelist"></div>
+						
 						<br />
-						<div id="dropfile">Drop Files Here</div>
+						<div id="dropfile">Drop Files Here<div id="filelist"></div><span id="logo"></span></div>
 						<a id="pickfiles" href="#">[Select files]</a>
 						<a id="uploadfiles" href="#">[Upload files]</a>
 					</div>
