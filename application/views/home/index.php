@@ -302,6 +302,7 @@
 				uploader.bind('FileUploaded', function(up, file) {
 					//$('#' + file.id + " b").html("100%");
 					$('#' + file.id + "").fadeOut("slow");
+					updateFileList();
 				});
             });
             function getLink(path,icon,size,pos)
