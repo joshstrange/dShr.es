@@ -113,6 +113,10 @@
 				border-radius:10px;
 				background:#EEE;
 			}
+			#dropfile .title {
+				padding: 10px;
+				font-size: 21px;	
+			}
 			#dropfile #logo {
 				float: right;
 				margin-right:10px;
@@ -238,7 +242,7 @@
 					runtimes : 'gears,html5,flash,silverlight,browserplus',
 					browse_button : 'pickfiles',
 					container : 'container',
-					max_file_size : '10mb',
+					max_file_size : '150mb',
 					url : 'fileupload',
 					flash_swf_url : '/lib/plupload.flash.swf',
 					silverlight_xap_url : '/lib/plupload.silverlight.xap',
@@ -268,7 +272,7 @@
 								width: $(this).data("origWidth")
 							}, 1200);
 					});
-
+					uploader.start();
 					up.refresh(); // Reposition Flash/Silverlight
 				});
 
@@ -363,9 +367,14 @@
 					<div id="container">
 						
 						<br />
-						<div id="dropfile">Drop Files Here<div id="filelist"></div><span id="logo"></span></div>
-						<a id="pickfiles" href="#">[Select files]</a>
-						<a id="uploadfiles" href="#">[Upload files]</a>
+						<div id="dropfile">
+							<span class="title">
+								Drop Files Here or <a id="pickfiles" href="#">Browse...</a>
+							<div id="filelist">
+							</div>
+							<span id="logo"></span>
+						</div>
+						<!--a id="uploadfiles" href="#">[Upload files]</a-->
 					</div>
 					<?php
 				}
