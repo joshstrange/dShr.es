@@ -334,6 +334,7 @@
             function updateFileList()
             {
 				$.get('/getFileList', function(data) {
+					console.log('page: '+$('#dbFileList').html().length +' remote:'+data.length);
 					if($('#dbFileList').html().length != data.length)
 					{
 						//$('#dbFileList').html(data);
