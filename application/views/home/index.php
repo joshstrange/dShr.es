@@ -138,7 +138,8 @@
 		}
 		.meter > span {
 			display: block;
-			height: 100%;
+			height: 6px;
+			width:50%;
 			   -webkit-border-top-right-radius: 8px;
 			-webkit-border-bottom-right-radius: 8px;
 			       -moz-border-radius-topright: 8px;
