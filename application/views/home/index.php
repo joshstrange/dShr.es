@@ -334,7 +334,7 @@
             function updateFileList()
             {
 				$.get('/getFileList', function(data) {
-					if($('#dbFileList').html() != data)
+					if($('#dbFileList').html().length != data.length)
 					{
 						//$('#dbFileList').html(data);
 						$("#dbFileList").fadeOut("fast", function(){
