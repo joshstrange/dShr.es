@@ -109,10 +109,14 @@
 			}
 			#dropfile {
 				width:700px;
-				height:300px;
+				height:200px;
 				border-radius:10px;
 				background:#EEE;
 				border: dashed;
+			}
+			#dropfile .filename {
+				float: left;
+				font-size: 16px;
 			}
 			#dropfile .title {
 				padding: 10px;
@@ -259,8 +263,8 @@
 				uploader.bind('FilesAdded', function(up, files) {
 					$.each(files, function(i, file) {
 						$('#filelist').append(
-							'<div id="' + file.id + '">' +
-							file.name + ' (' + plupload.formatSize(file.size) + ') <b><div id="p_' + file.id + '" class="meter animate"><span style="width: 0%"></span></div></b>' +
+							'<div id="' + file.id + '"><div class="filename">' +
+							file.name + ' (' + plupload.formatSize(file.size) + ')</div> <b><div id="p_' + file.id + '" class="meter animate"><span style="width: 0%"></span></div></b>' +
 						'</div>');
 					});
 					$(".meter > span").each(function() {

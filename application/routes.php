@@ -82,7 +82,6 @@ Route::get('getFileList', function (){
 		$path = $file->path;
 		$filePathArray = explode('/',$path);
 		$filename = $filePathArray[count($filePathArray)-1];
-		//print_r($file);
 		echo '<tr><td><img src="/img/16x16/'.$file->icon.'.gif"></td><td>'.$filename.'</td><td id="dbshare_'.$count.'"><a href="javascript:getLink(\''.$path.'\',\''.$file->icon.'\',\''.$file->size.'\',\''.$count.'\')" class="getLink"></a></td></tr>';
 	}
 	echo '</tbody>';
@@ -232,7 +231,6 @@ Route::post('fileupload', function()
 		$dropbox->putFile($filePath, $fileArray[count($fileArray)-1], '/', false);
 		unlink($filePath);
 	}
-
 
 	// Return JSON-RPC response
 	die('{"jsonrpc" : "2.0", "result" : null, "id" : "id"}');
