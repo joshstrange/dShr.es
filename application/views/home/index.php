@@ -404,7 +404,7 @@
 				else
 				{
 					?>
-					<h3><a href="/linkdropbox">Link Your Dropbox!</a></h3>
+					<h3><a href="/linkdropbox"><img src="/img/btn-link-with-dropbox.png"></a></h3>
 					<?php
 				}
 				
