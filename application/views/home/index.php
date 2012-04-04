@@ -371,10 +371,8 @@
 					<?php
 					$metaData = $dropbox->metaData('/');
 					$files = $metaData['body']->contents;
-					?>
-					<table id="dbFileList"><tbody>
-					<?php
 					$count =0;
+					echo '<table id="dbFileList"><tbody>';
 					foreach($files as $file)
 					{
 						$count++;
@@ -384,9 +382,9 @@
 						//print_r($file);
 						echo '<tr><td><img src="/img/16x16/'.$file->icon.'.gif"></td><td>'.$filename.'</td><td id="dbshare_'.$count.'"><a href="javascript:getLink(\''.$path.'\',\''.$file->icon.'\',\''.$file->size.'\',\''.$count.'\')" class="getLink"></a></td></tr>';
 					}
-
+					echo '</tbody></table>';
 					?>
-					</tbody></table>
+					
 					<h3>Upload a file</h3>
 					<div id="container">
 						
