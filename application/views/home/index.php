@@ -298,7 +298,7 @@
 
 				uploader.bind('FileUploaded', function(up, file) {
 					//$('#' + file.id + " b").html("100%");
-					///$('#' + file.id + "").fadeOut("slow"); //Removed for debugging
+					$('#' + file.id + "").fadeOut("slow");
 					updateFileList();
 				});
             });
