@@ -110,7 +110,7 @@
 			#dropfile {
 				width:700px;
 				height:300px;
-				border-radius:10;
+				border-radius:10px;
 				background:#EEE;
 			}
 			#dropfile #logo {
@@ -119,12 +119,15 @@
 				background:url('/img/back-dropfile.png');
 				width:300px;
 				height:300px;
+				position: absolute;
+				top: 20px;
+				right: 0px;
 			}
 			.meter { 
-			height: 20px;  /* Can be anything */
+			height: 5px;  /* Can be anything */
 			position: relative;
-			margin: 60px 0 20px 0; /* Just for demo spacing */
 			background: #555;
+			width:50%;
 			-moz-border-radius: 25px;
 			-webkit-border-radius: 25px;
 			border-radius: 25px;
@@ -285,7 +288,7 @@
 
 				uploader.bind('FileUploaded', function(up, file) {
 					//$('#' + file.id + " b").html("100%");
-					$('#p_' + file.id + "").hide();
+					$('#' + file.id + "").fadeOut("slow");
 				});
             });
             function getLink(path,icon,size,pos)
