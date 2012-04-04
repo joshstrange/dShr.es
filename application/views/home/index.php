@@ -112,20 +112,11 @@
 				height:300px;
 				border-radius:10px;
 				background:#EEE;
+				border: dashed;
 			}
 			#dropfile .title {
 				padding: 10px;
 				font-size: 21px;	
-			}
-			#dropfile #logo {
-				float: right;
-				margin-right:10px;
-				background:url('/img/back-dropfile.png');
-				width:300px;
-				height:300px;
-				position: absolute;
-				top: 20px;
-				right: 0px;
 			}
 			#filelist {
 				height: 250px;
@@ -301,7 +292,7 @@
 
 				uploader.bind('FileUploaded', function(up, file) {
 					//$('#' + file.id + " b").html("100%");
-					$('#' + file.id + "").fadeOut("slow");
+					///$('#' + file.id + "").fadeOut("slow"); //Removed for debugging
 					updateFileList();
 				});
             });
@@ -395,7 +386,6 @@
 								Drop Files Here or <a id="pickfiles" href="#">Browse...</a>
 							<div id="filelist">
 							</div>
-							<span id="logo"></span>
 						</div>
 						<!--a id="uploadfiles" href="#">[Upload files]</a-->
 					</div>
