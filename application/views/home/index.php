@@ -127,11 +127,19 @@
 				top: 20px;
 				right: 0px;
 			}
+			#filelist {
+				height: 250px;
+				top:35px;
+				padding-left:10px;
+				font-size:12px;
+				overflow-y: scroll;
+				width:50%;
+			}
 			.meter { 
 			height: 5px;  /* Can be anything */
 			position: relative;
 			background: #555;
-			width:50%;
+			width:100%;
 			-moz-border-radius: 25px;
 			-webkit-border-radius: 25px;
 			border-radius: 25px;
