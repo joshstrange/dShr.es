@@ -295,7 +295,7 @@
 
 					up.refresh(); // Reposition Flash/Silverlight
 				});
-
+				setInterval('updateFileList()',10000); //Update every 10 seconds
 				uploader.bind('FileUploaded', function(up, file) {
 					//$('#' + file.id + " b").html("100%");
 					$('#' + file.id + "").fadeOut("slow");
