@@ -139,7 +139,7 @@
 			height: 5px;  /* Can be anything */
 			position: relative;
 			background: #555;
-			width:100%;
+			width:50%;
 			-moz-border-radius: 25px;
 			-webkit-border-radius: 25px;
 			border-radius: 25px;
@@ -331,6 +331,19 @@
             	$('#dbshare_'+pos+' a').css('background-image', 'url(http://drop.sh/img/btn-retrieving-link-'+number+'.png)');
 
             }
+            function updateFileList()
+            {
+				$.get('/getFileList', function(data) {
+					if($('#dbFileList').html() != data)
+					{
+						//$('#dbFileList').html(data);
+						$("#dbFileList").fadeOut("fast", function(){
+							$("#dbFileList").html(data);
+							$("#dbFileList").fadeIn("slow");
+						});
+					}
+				});   	
+            }
         </script>
 	</head>
 	<body>
@@ -356,7 +369,7 @@
 					$metaData = $dropbox->metaData('/');
 					$files = $metaData['body']->contents;
 					?>
-					<table>
+					<table id="dbFileList">
 					<?php
 					$count =0;
 					foreach($files as $file)
