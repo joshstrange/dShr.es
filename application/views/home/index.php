@@ -117,6 +117,7 @@
 			#dropfile .filename {
 				float: left;
 				font-size: 16px;
+				clear: left;
 			}
 			#dropfile .title {
 				padding: 10px;
@@ -128,10 +129,11 @@
 				padding-left:10px;
 				font-size:12px;
 				overflow-y: scroll;
-				width:50%;
 			}
 			.meter { 
 			height: 5px;  /* Can be anything */
+			float:right;
+			margin-right:10px;
 			position: relative;
 			background: #555;
 			width:50%;
