@@ -372,7 +372,7 @@
 					$metaData = $dropbox->metaData('/');
 					$files = $metaData['body']->contents;
 					?>
-					<table id="dbFileList">
+					<table id="dbFileList"><tbody>
 					<?php
 					$count =0;
 					foreach($files as $file)
@@ -386,7 +386,7 @@
 					}
 
 					?>
-					</table>
+					</tbody></table>
 					<h3>Upload a file</h3>
 					<div id="container">
 						

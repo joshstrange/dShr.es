@@ -75,6 +75,7 @@ Route::get('getFileList', function (){
 	$metaData = $dropbox->metaData('/');
 	$files = $metaData['body']->contents;
 	$count =0;
+	echo '<tbody>';
 	foreach($files as $file)
 	{
 		$count++;
@@ -84,7 +85,7 @@ Route::get('getFileList', function (){
 		//print_r($file);
 		echo '<tr><td><img src="/img/16x16/'.$file->icon.'.gif"></td><td>'.$filename.'</td><td id="dbshare_'.$count.'"><a href="javascript:getLink(\''.$path.'\',\''.$file->icon.'\',\''.$file->size.'\',\''.$count.'\')" class="getLink"></a></td></tr>';
 	}
-
+	echo '</tbody>';
 	
 
 });
