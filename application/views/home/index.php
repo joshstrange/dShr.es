@@ -380,9 +380,9 @@
 
 					<h3>Your Files</h3>
 					<?php
-					$metaData = $dropbox->metaData('/');
+					/*$metaData = $dropbox->metaData('/');
 					$files = $metaData['body']->contents;
-					$count =0;
+					$count =0;*/
 					
 					/*echo '<table id="dbFileList"><tbody>';
 					foreach($files as $file)
@@ -397,7 +397,7 @@
 					}
 					echo '</tbody></table>';*/
 
-					function printData($path,$level=0)
+					function printData($path,$level=0,$dropbox)
 					{
 						$level++;
 						$count=0;
@@ -442,7 +442,7 @@
 
 					}
 					
-					printData('/');
+					printData('/',0,$dropbox);
 					
 
 
