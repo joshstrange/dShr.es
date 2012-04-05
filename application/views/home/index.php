@@ -129,8 +129,18 @@
 				background-position: 0 0;
 				cursor:pointer;
 			}
+			.filename {
+				margin-top: 5px;
+				position: absolute;
+				margin-left: 20px;
+			}
+			.fileIcon {
+				margin-top: 5px;
+				position: absolute;
+			}
 			#main input{
 				width:175px;
+				margin-top: 3px;
 			}
 			#dropfile {
 				width:700px;
