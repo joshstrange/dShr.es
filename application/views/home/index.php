@@ -104,6 +104,18 @@
 				background-position: 0 0;
 				cursor:pointer;
 			}
+			.linkDropbox {
+				display: inline-block;
+				width: 181px;
+				height: 27px;
+				background: url('/img/btn-link-with-dropbox.png') bottom;
+				vertical-align: middle;
+				/*text-indent: -99999px;*/
+			}
+			.linkDropbox:hover {
+				background-position: 0 0;
+				cursor:pointer;
+			}
 			#main input{
 				width:175px;
 			}
@@ -400,7 +412,7 @@
 				else
 				{
 					?>
-					<h3><a href="/linkdropbox"><img src="/img/btn-link-with-dropbox.png"></a></h3>
+					<h3><a class="linkDropbox" href="/linkdropbox"></a></h3>
 					<?php
 				}
 				
