@@ -34,7 +34,7 @@
 */
 
 
-Route::get('/, are', function()
+Route::get('/', function()
 {
 	session_start();
 	if(isLoggedIn())
@@ -50,7 +50,7 @@ Route::get('/, are', function()
 	return View::make('home.index')->with('loggedIn', $loggedIn)->with('dropbox', $dropbox);
 });
 
-Route::get('are/(:any)', function($hash)
+Route::get('s/(:any)', function($hash)
 {
 	if(DB::table('shares')->where('urlHash', '=', $hash)->count() !=1)
 		Redirect::to('404')->send();
@@ -265,7 +265,7 @@ Route::get('getDSLink', function()
 		'icon'			=> $icon,
 		'size'			=> $size
 	));
-	echo json_encode(array('url' => "http://".$_SERVER['SERVER_NAME']."/are/".$hash));
+	echo json_encode(array('url' => "http://".$_SERVER['SERVER_NAME']."/s/".$hash));
 });
 
 Route::get('addToDB/(:any)', function($hash)

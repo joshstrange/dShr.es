@@ -136,13 +136,13 @@
             function copyToDB(hash)
             {
 				$('#copyRef').attr('href', '#');
-				$('#copyRef').css('background-image', 'url(http://drop.sh/img/btn-copying-1.png)');
+				$('#copyRef').css('background-image', 'url(/img/btn-copying-1.png)');
 				var interval = setInterval("copying()",250);
 				$.getJSON('/addToDB/'+hash, function(data) {
 					if(!data.error)
 					{
 						clearInterval(interval);
-						$('#copyRef').css('background-image', 'url(http://drop.sh/img/btn-copied.png)');
+						$('#copyRef').css('background-image', 'url(/img/btn-copied.png)');
 					}
 					else
 						alert(data.error)
@@ -151,24 +151,24 @@
             function copying()
             {
             	var image = $('#copyRef').css('background-image');
-            	var number = image.replace('url(http://drop.sh/img/btn-copying-','');
+            	var number = image.replace('url(/img/btn-copying-','');
             	number = number.replace('.png)','');
             	if(number==4) number=0;
             	number++;
-            	$('#copyRef').css('background-image', 'url(http://drop.sh/img/btn-copying-'+number+'.png)');
+            	$('#copyRef').css('background-image', 'url(/img/btn-copying-'+number+'.png)');
 
             }
         </script>
 	</head>
 	<body>
-		<a href="http://github.com/joshstrange/drop.sh"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>
+		<a href="http://github.com/joshstrange/dShr.es"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>
 		<div id="main">
-			<a href="/are"><h1>Drop.Sh/are<img style="float:right;" src="/img/dropshare-logo-150x200.png"></h1></a>
+			<a href="/are"><h1>dShr.es<img style="float:right;" src="/img/dropshare-logo-150x200.png"></h1></a>
 
 			<h2>#!/usr/bin/sharing</h2>
 
 			<p>
-				<a href="http://Drop.Sh/are">Drop.Sh/are</a> make it super easy to share <a href="http://dropbox.com">Dropbox</a> files with anyone! 
+				<a href="http://dShr.es">dShr.es</a> makes it super easy to share <a href="http://dropbox.com">Dropbox</a> files with anyone! 
 			</p>
 			<table>
 				<tr>

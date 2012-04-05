@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Drop.Sh/are - #!/usr/bin/sharing</title>
+		<title>dShr.es - #!/usr/bin/sharing</title>
 		<link rel="icon" type="image/png" href="/favicon.png">
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 		<script type="text/javascript" src="http://bp.yahooapis.com/2.4.21/browserplus-min.js"></script>
@@ -304,7 +304,7 @@
             });
             function getLink(path,icon,size,pos)
             {
-				$('#dbshare_'+pos+' a').css('background-image', 'url(http://drop.sh/img/btn-retrieving-link-1.png)');
+				$('#dbshare_'+pos+' a').css('background-image', 'url(/img/btn-retrieving-link-1.png)');
 				var interval = setInterval("waiting("+pos+")",250);
 				$.getJSON('/getDSLink?path='+path+'&icon='+icon+'&size='+size, function(data) {
 					if(!data.error)
@@ -322,11 +322,11 @@
             function waiting(pos)
             {
             	var image = $('#dbshare_'+pos+' a').css('background-image');
-            	var number = image.replace('url(http://drop.sh/img/btn-retrieving-link-','');
+            	var number = image.replace('url(/img/btn-retrieving-link-','');
             	number = number.replace('.png)','');
             	if(number==4) number=0;
             	number++;
-            	$('#dbshare_'+pos+' a').css('background-image', 'url(http://drop.sh/img/btn-retrieving-link-'+number+'.png)');
+            	$('#dbshare_'+pos+' a').css('background-image', 'url(/img/btn-retrieving-link-'+number+'.png)');
 
             }
             function updateFileList()
@@ -348,21 +348,21 @@
         </script>
 	</head>
 	<body>
-		<a href="http://github.com/joshstrange/drop.sh"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>
+		<a href="http://github.com/joshstrange/dShr.es"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>
 		<div id="main">
-			<a href="/are"><h1>Drop.Sh/are<img style="float:right;" src="/img/dropshare-logo-150x200.png"></h1></a>
+			<a href="/are"><h1>dShr.es<img style="float:right;" src="/img/dropshare-logo-150x200.png"></h1></a>
 
 			<h2>#!/usr/bin/sharing</h2>
 
 			<p>
-				<a href="http://Drop.Sh/are">Drop.Sh/are</a> make it super easy to share <a href="http://dropbox.com">Dropbox</a> files with anyone! 
+				<a href="http://dShr.es">dShr.es</a> makes it super easy to share <a href="http://dropbox.com">Dropbox</a> files with anyone! 
 			</p>
 			<?php
 				if($loggedIn)
 				{
 					?>
 					<p>
-						To share files using <a href="http://Drop.Sh/are">Drop.Sh/are</a> all you have to do is move the file(s) you want to share into your /Apps/Drop.sh/ Folder and they will show up below! 
+						To share files using <a href="http://dShr.es">dShr.es</a> all you have to do is move the file(s) you want to share into your /Apps/dShr.es/ Folder and they will show up below! 
 					</p>
 
 					<h3>Your Files</h3>
