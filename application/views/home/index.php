@@ -86,9 +86,14 @@
 				margin: 10px 0;
 				padding: 0 30px;
 			}
+			#main ul ul {
+				margin-left: 10px;
+				padding: 0 30px;	
+			}
 
 			#main li {
 				margin: 5px 0;
+				height:27px;
 			}
 			img {vertical-align: middle;}
 
@@ -405,7 +410,6 @@
 						$count=0;
 						$metaData = $dropbox->metaData($path);
 						$files = $metaData['body']->contents;
-						if($level>1) echo "<li>";
 						echo "<ul>";
 						foreach($files as $file)
 						{
@@ -423,8 +427,9 @@
 										<span class="filename">'
 										.$filename.
 										'</span>
-									  </li>';
+									  ';
 								printData($file->path,$level,$dropbox);
+								echo '</li>';
 							}
 							else
 								echo '<li>
@@ -440,7 +445,6 @@
 									  </li>';
 						}
 						echo "</ul>";
-						if($level>1) echo "</li>";
 
 					}
 					
