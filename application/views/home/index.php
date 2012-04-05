@@ -90,7 +90,6 @@
 				margin-left: 10px;
 				margin-right: 0px;
 				padding-right: 0px;
-				padding: 0 30px;	
 			}
 
 			#main li {
