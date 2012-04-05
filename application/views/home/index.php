@@ -85,6 +85,7 @@
 			#main ul {
 				margin: 10px 0;
 				padding-left: 30px;
+				list-style:none;
 			}
 			#main ul ul {
 				/*margin-left: 30px;*/
