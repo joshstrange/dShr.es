@@ -93,7 +93,6 @@
 			img {vertical-align: middle;}
 
 			.getLink {
-				float: right;
 				display: inline-block;
 				width: 181px;
 				height: 27px;
@@ -104,6 +103,9 @@
 			.getLink:hover {
 				background-position: 0 0;
 				cursor:pointer;
+			}
+			.getLinkSpan {
+				float:right;
 			}
 			.linkDropbox {
 				display: inline-block;
@@ -432,7 +434,7 @@
 										<span class="filename">'
 										.$filename.
 										'</span>
-										<span id="dbshare_'.$level.'-'.$count.'">
+										<span class="getLinkSpan" id="dbshare_'.$level.'-'.$count.'">
 											<a href="javascript:getLink(\''.$path.'\',\''.$file->icon.'\',\''.$file->size.'\',\''.$level.'-'.$count.'\')" class="getLink"></a>
 										</span>
 									  </li>';
