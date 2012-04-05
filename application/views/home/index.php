@@ -93,6 +93,7 @@
 			img {vertical-align: middle;}
 
 			.getLink {
+				float: right;
 				display: inline-block;
 				width: 181px;
 				height: 27px;
@@ -307,7 +308,7 @@
 
 					up.refresh(); // Reposition Flash/Silverlight
 				});
-				setInterval('updateFileList()',10000); //Update every 10 seconds
+				//setInterval('updateFileList()',10000); //Update every 10 seconds - Commented out during testing of new code
 				uploader.bind('FileUploaded', function(up, file) {
 					//$('#' + file.id + " b").html("100%");
 					$('#' + file.id + "").fadeOut("slow");
@@ -382,7 +383,8 @@
 					$metaData = $dropbox->metaData('/');
 					$files = $metaData['body']->contents;
 					$count =0;
-					echo '<table id="dbFileList"><tbody>';
+					
+					/*echo '<table id="dbFileList"><tbody>';
 					foreach($files as $file)
 					{
 						$count++;
@@ -390,9 +392,60 @@
 						$filePathArray = explode('/',$path);
 						$filename = $filePathArray[count($filePathArray)-1];
 						//print_r($file);
+						if($file->is_dir)
 						echo '<tr><td><img src="/img/16x16/'.$file->icon.'.gif"></td><td>'.$filename.'</td><td id="dbshare_'.$count.'"><a href="javascript:getLink(\''.$path.'\',\''.$file->icon.'\',\''.$file->size.'\',\''.$count.'\')" class="getLink"></a></td></tr>';
 					}
-					echo '</tbody></table>';
+					echo '</tbody></table>';*/
+
+					function printData($path,$level=0)
+					{
+						$level++;
+						$count=0;
+						$metaData = $dropbox->metaData($path);
+						$files = $metaData['body']->contents;
+						if($level>1) echo "<li>";
+						echo "<ul>";
+						foreach($files as $file)
+						{
+							$count++;
+							$path = $file->path;
+							$filePathArray = explode('/',$path);
+							$filename = $filePathArray[count($filePathArray)-1];
+							//print_r($file);
+							if($file->is_dir)
+							{
+								echo '<li>
+										<span class="fileIcon">
+											<img src="/img/16x16/'.$file->icon.'.gif">
+										</span>
+										<span class="filename">'
+										.$filename.
+										'</span>
+									  </li>';
+								printData($file->path,$level);
+							}
+							else
+								echo '<li>
+										<span class="fileIcon">
+											<img src="/img/16x16/'.$file->icon.'.gif">
+										</span>
+										<span class="filename">'
+										.$filename.
+										'</span>
+										<span id="dbshare_'.$level.'-'.$count.'">
+											<a href="javascript:getLink(\''.$path.'\',\''.$file->icon.'\',\''.$file->size.'\',\''.$level.'-'.$count.'\')" class="getLink"></a>
+										</span>
+									  </li>';
+						}
+						echo "</ul>";
+						if($level>1) echo "</li>";
+
+					}
+					
+					printData('/');
+					
+
+
 					?>
 					
 					<h3>Upload a file</h3>

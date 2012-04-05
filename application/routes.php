@@ -67,7 +67,7 @@ Route::get('linkdropbox', function()
 	/*$dbid = Input::get('uid');
 	$oauth_token = Input::get('oauth_token');
 	DB::table('users')->insert(array('dbid' => $dbid, 'accessKey'=>$oauth_token));*/
-	Redirect::to('are')->send();
+	Redirect::to('/')->send();
 });
 
 Route::get('getFileList', function (){
