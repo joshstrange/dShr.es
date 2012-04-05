@@ -91,6 +91,7 @@
 				/*margin-left: 30px;*/
 				margin-right: 0px;
 				padding-right: 0px;
+				padding-top: 24px;
 			}
 			#main li:hover > .getLinkSpan {
 				display:block;
