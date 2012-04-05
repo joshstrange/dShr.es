@@ -92,7 +92,9 @@
 				margin-right: 0px;
 				padding-right: 0px;
 			}
-
+			#main li:hover > .getLinkSpan {
+				display:block;
+			}
 			#main li {
 				margin: 5px 0;
 				height:27px;
@@ -113,6 +115,7 @@
 			}
 			.getLinkSpan {
 				float:right;
+				display:none;
 			}
 			.linkDropbox {
 				display: inline-block;
@@ -326,6 +329,7 @@
             });
             function getLink(path,icon,size,pos)
             {
+				$('#dbshare_'+pos).css('display','block');
 				$('#dbshare_'+pos+' a').css('background-image', 'url(/img/btn-retrieving-link-1.png)');
 				var interval = setInterval("waiting("+pos+")",250);
 				$.getJSON('/getDSLink?path='+path+'&icon='+icon+'&size='+size, function(data) {
