@@ -95,9 +95,14 @@
 			#main li:hover > .getLinkSpan {
 				display:block;
 			}
+			#main li:hover {
+				background-color: #EEE;
+				border-radius: 5px;
+			}
 			#main li {
 				margin: 5px 0;
 				height:27px;
+				padding-left: 5px;
 			}
 			img {vertical-align: middle;}
 
