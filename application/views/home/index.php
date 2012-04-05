@@ -84,10 +84,10 @@
 
 			#main ul {
 				margin: 10px 0;
-				padding: 0 30px;
+				padding-left: 30px;
 			}
 			#main ul ul {
-				margin-left: 10px;
+				/*margin-left: 30px;*/
 				margin-right: 0px;
 				padding-right: 0px;
 			}
