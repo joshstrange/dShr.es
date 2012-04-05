@@ -422,7 +422,7 @@
 										.$filename.
 										'</span>
 									  </li>';
-								printData($file->path,$level);
+								printData($file->path,$level,$dropbox);
 							}
 							else
 								echo '<li>
