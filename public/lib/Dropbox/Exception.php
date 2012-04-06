@@ -10,5 +10,8 @@ namespace Dropbox;
 
 class Exception extends \Exception
 {
-
+	public function getMessage()
+	{
+		return $this->message;
+	}
 }

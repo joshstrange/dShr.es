@@ -269,11 +269,11 @@ Route::get('addToDB/(:any)', function($hash)
 		$dropbox->copy(null,'/'.$share->filename,$share->copyref); // Turned off while testing
 		echo json_encode(array('message' => "File Copied!", 'error'=>false));
 	} catch (Exception $e) {
-		echo json_encode(array('message' => print_r($e,1), 'error'=>true));
-		/*if($e->message == 'the file at u\''.$share->filename.'\' already exists. (Status Code: 403)')
+		//echo json_encode(array('message' => print_r($e,1), 'error'=>true));
+		if($e->getMessage() == 'the file at u\''.$share->filename.'\' already exists. (Status Code: 403)')
 			echo json_encode(array('message' => $share->filename.' already exists in your Dropbox folder!', 'error'=>true));
 		else
-			echo json_encode(array('message' => 'There was an error tyring to copy this file', 'error'=>true));*/
+			echo json_encode(array('message' => 'There was an error tyring to copy this file', 'error'=>true));
 	}
 	
 	
