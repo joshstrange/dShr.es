@@ -150,7 +150,7 @@
 					{
 						alert(data.message);
 						clearInterval(interval);
-						$('#copyRef').css('background-image', 'url(/img/btn-error-copying-file.png.png)');
+						$('#copyRef').css('background-image', 'url(/img/btn-error-copying-file.png)');
 					}
 				});
             }
