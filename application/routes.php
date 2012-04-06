@@ -72,21 +72,7 @@ Route::get('linkdropbox', function()
 
 Route::get('getFileList', function (){
 	$dropbox = requireDropbox();
-	$metaData = $dropbox->metaData('/');
-	$files = $metaData['body']->contents;
-	$count =0;
-	echo '<tbody>';
-	foreach($files as $file)
-	{
-		$count++;
-		$path = $file->path;
-		$filePathArray = explode('/',$path);
-		$filename = $filePathArray[count($filePathArray)-1];
-		echo '<tr><td><img src="/img/16x16/'.$file->icon.'.gif"></td><td>'.$filename.'</td><td id="dbshare_'.$count.'"><a href="javascript:getLink(\''.$path.'\',\''.$file->icon.'\',\''.$file->size.'\',\''.$count.'\')" class="getLink"></a></td></tr>';
-	}
-	echo '</tbody>';
-	
-
+	printData('/',0,$dropbox);
 });
 
 
@@ -381,5 +367,52 @@ function requireDropbox()
 	$OAuth = new \Dropbox\OAuth\Consumer\Curl(getenv('HTTP_DROPBOX_KEY'), getenv('HTTP_DROPBOX_SECRET'), $storage, $callback);
 	$dropbox = new \Dropbox\API($OAuth);
 	return $dropbox;
+
+}
+
+function printData($path,$level=0,$dropbox)
+{
+	$level++;
+	$count=0;
+	$metaData = $dropbox->metaData($path);
+	$files = $metaData['body']->contents;
+	if($level>1)
+		echo '<ul style="display:none;">';
+	else
+		echo "<ul>";
+	foreach($files as $file)
+	{
+		$count++;
+		$path = $file->path;
+		$filePathArray = explode('/',$path);
+		$filename = $filePathArray[count($filePathArray)-1];
+		//print_r($file);
+		if($file->is_dir)
+		{
+			echo '<li class="parent">
+					<span class="fileIcon">
+						<img src="/img/16x16/'.$file->icon.'.gif">
+					</span>
+					<span class="filename">'
+					.$filename.
+					'</span>
+				  ';
+			printData($file->path,$level,$dropbox);
+			echo '</li>';
+		}
+		else
+			echo '<li>
+					<span class="fileIcon">
+						<img src="/img/16x16/'.$file->icon.'.gif">
+					</span>
+					<span class="filename">'
+					.$filename.
+					'</span>
+					<span class="getLinkSpan" id="dbshare_'.$level.'-'.$count.'">
+						<a href="javascript:getLink(\''.$path.'\',\''.$file->icon.'\',\''.$file->size.'\',\''.$level.'-'.$count.'\')" class="getLink"></a>
+					</span>
+				  </li>';
+	}
+	echo "</ul>";
 
 }
