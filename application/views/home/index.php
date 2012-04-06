@@ -351,10 +351,10 @@
 					updateFileList();
 				});
 				$('li.parent .fileIcon').click(function() {
-					$(this).find('ul').slideToggle("fast");
+					$(this).parent().find('ul').slideToggle("fast");
 				});
 				$('li.parent .filename').click(function() {
-					$(this).find('ul').slideToggle("fast");
+					$(this).parent().find('ul').slideToggle("fast");
 				});
 				
             });
