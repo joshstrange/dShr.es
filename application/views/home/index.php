@@ -391,7 +391,7 @@
             }
             function updateFileList()
             {
-				$.getJSON('/getFileList', function(data) {
+				$.get('/getFileList', function(data) {
 					//console.log('page: '+$('#dbFileList').html().length +' remote:'+data.length);
 					//console.log($('#dbFileList').html());
 					//console.log(data);
