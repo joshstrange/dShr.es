@@ -401,14 +401,17 @@
 						//$('#dbFileList').html(data);
 						$("#dbFileList").fadeOut("fast", function(){
 							$("#dbFileList").html(data);
-							$("#dbFileList").fadeIn("slow");
+							$("#dbFileList").fadeIn("slow", function(){
+								$('li.parent .fileIcon').click(function() {
+									$(this).parent().find('ul').first().toggle();
+								});
+								$('li.parent .filename').click(function() {
+									$(this).parent().find('ul').first().toggle();
+								});
+							});
+
 						});
-						$('li.parent .fileIcon').click(function() {
-							$(this).parent().find('ul').first().toggle();
-						});
-						$('li.parent .filename').click(function() {
-							$(this).parent().find('ul').first().toggle();
-						});
+
 					}
 				});   	
             }
