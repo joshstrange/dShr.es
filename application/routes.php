@@ -269,7 +269,7 @@ Route::get('addToDB/(:any)', function($hash)
 		$dropbox->copy(null,'/'.$share->filename,$share->copyref); // Turned off while testing
 		echo json_encode(array('message' => "File Copied!", 'error'=>false));
 	} catch (Exception $e) {
-		echo json_encode(array('message' => $e, 'error'=>true));
+		echo json_encode(array('message' => print_r($e,1), 'error'=>true));
 	}
 	
 	
