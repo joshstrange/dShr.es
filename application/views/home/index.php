@@ -116,7 +116,7 @@
 			}
 			img {vertical-align: middle;}
 
-			.getLink {
+			#main ul .getLink {
 				display: inline-block;
 				width: 181px;
 				height: 27px;
@@ -124,11 +124,11 @@
 				vertical-align: middle;
 				/*text-indent: -99999px;*/
 			}
-			.getLink:hover {
+			#main ul .getLink:hover {
 				background-position: 0 0;
 				cursor:pointer;
 			}
-			.getLinkSpan {
+			#main ul .getLinkSpan {
 				float:right;
 				display:none;
 			}
@@ -144,12 +144,12 @@
 				background-position: 0 0;
 				cursor:pointer;
 			}
-			.filename {
+			#main ul .filename {
 				margin-top: 5px;
 				position: absolute;
 				margin-left: 20px;
 			}
-			.fileIcon {
+			#main ul .fileIcon {
 				margin-top: 5px;
 				position: absolute;
 			}
@@ -168,6 +168,7 @@
 				float: left;
 				font-size: 16px;
 				clear: left;
+				position: relative;
 			}
 			#dropfile .title {
 				padding: 10px;
