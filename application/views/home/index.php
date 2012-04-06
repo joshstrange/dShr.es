@@ -154,7 +154,7 @@
 				position: absolute;
 			}
 			#main input{
-				width:175px;
+				width:115px;
 				margin-top: 3px;
 			}
 			#dropfile {
@@ -366,6 +366,8 @@
             });
             function getLink(path,icon,size,pos)
             {
+				var fileNameArray = path.split('/');
+				var fileName = fileNameArray[fileNameArray.length-1];
 				$('#dbshare_'+pos).css('display','block');
 				$('#dbshare_'+pos+' a').css('background-image', 'url(/img/btn-retrieving-link-1.png)');
 				var dbshare =$('#dbshare_'+pos+' a')[0];
@@ -379,6 +381,10 @@
 						$('#dbshare_'+pos).html('<input value="'+link+'">');
 						$('#dbshare_'+pos+' input').focus();
 						$('#dbshare_'+pos+' input').select();
+						var twitterLink = '<a href="https://twitter.com/share" class="twitter-share-button" data-url="'+data.url+'" data-text="'+fileName+'" data-via="dShresApp" data-count="none">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>'
+						$('#dbshare_'+pos).html($('#dbshare_'+pos).html()+twitterLink);
+						
 					}
 					else
 						alert(data.error)
