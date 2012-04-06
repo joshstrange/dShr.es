@@ -143,6 +143,9 @@
 				margin-right: -25px;
 				margin-top: -25px;
 			}
+			.twitter-share-button {
+				vertical-align: top;
+			}
 		</style>
 		<script type="text/javascript">
             $(function() {
