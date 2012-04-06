@@ -348,7 +348,7 @@
 				//setInterval('updateFileList()',10000); //Update every 10 seconds - Commented out during testing of new code
 				uploader.bind('FileUploaded', function(up, file) {
 					//$('#' + file.id + " b").html("100%");
-					$('#' + file.id + "").fadeOut("slow");
+					//$('#' + file.id + "").fadeOut("slow"); //Turned off for debugging
 					updateFileList();
 				});
 				$('li.parent .fileIcon').click(function() {
