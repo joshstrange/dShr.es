@@ -425,10 +425,11 @@
 					</p>
 
 					<h3>Your Files</h3>
+					<div id="dbFileList">
 					<?php
 						printData('/',0,$dropbox);
 					?>
-					
+					</div>
 					<h3>Upload a file</h3>
 					<div id="container">
 						
