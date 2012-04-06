@@ -90,7 +90,9 @@
 				margin: 5px 0;
 			}
 			img {vertical-align: middle;}
-
+			#copyError {
+				color:red;
+			}
 			.getLink {
 				display: inline-block;
 				width: 181px;
@@ -148,7 +150,7 @@
 					}
 					else
 					{
-						alert(data.message);
+						$('#copyError').html(data.message);
 						clearInterval(interval);
 						$('#copyRef').css('background-image', 'url(/img/btn-error-copying-file.png)');
 					}
@@ -194,6 +196,13 @@
 					</td>
 					<td>
 						<a class="copyRef" id="copyRef" href="javascript:copyToDB('<?=$share->urlhash?>')"></a>
+					</td>
+				</tr>
+				<tr>
+					<td>
+					</td>
+					<td>
+						<span id="copyError"></span>
 					</td>
 				</tr>
 			</table>
