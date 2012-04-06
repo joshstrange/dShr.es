@@ -87,8 +87,13 @@
 				padding-left: 30px;
 				list-style:none;
 			}
+			#main ul.parent {
+				cursor: pointer;
+				height:auto;
+			}
 			#main ul ul {
 				/*margin-left: 30px;*/
+				margin:0px;
 				margin-right: 0px;
 				padding-right: 0px;
 				padding-top: 24px;
