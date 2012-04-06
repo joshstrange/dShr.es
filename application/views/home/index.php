@@ -88,8 +88,11 @@
 				list-style:none;
 			}
 			#main li.parent {
-				cursor: pointer;
 				height:auto;
+			}
+			
+			#main li.parent .fileIcon,#main li.parent .filename{
+				cursor: pointer;
 			}
 			#main ul ul {
 				/*margin-left: 30px;*/
@@ -346,6 +349,9 @@
 					//$('#' + file.id + " b").html("100%");
 					$('#' + file.id + "").fadeOut("slow");
 					updateFileList();
+				});
+				$('li.parent .fileIcon, li.parent .filename').click(function() {
+					$(this).find('ul').slideToggle("fast");
 				});
             });
             function getLink(path,icon,size,pos)
