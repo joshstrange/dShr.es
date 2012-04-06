@@ -89,6 +89,7 @@
 			}
 			#main li.parent {
 				height:auto;
+				min-height: 27px;
 			}
 			
 			#main li.parent .fileIcon,#main li.parent .filename{
@@ -351,10 +352,10 @@
 					updateFileList();
 				});
 				$('li.parent .fileIcon').click(function() {
-					$(this).parent().find('ul').slideToggle("fast");
+					$(this).parent().find('ul').slideToggle();
 				});
 				$('li.parent .filename').click(function() {
-					$(this).parent().find('ul').slideToggle("fast");
+					$(this).parent().find('ul').slideToggle();
 				});
 				
             });
