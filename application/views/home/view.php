@@ -134,6 +134,10 @@
 				margin-top: 10px;
     			float: right;
 			}
+			.social-footer {
+				margin-top: 10px;
+    			float: left;
+			}
 		</style>
 		<script type="text/javascript">
             $(function() {
@@ -214,6 +218,8 @@
 				
 				
 			?>
+			<div class="social-footer"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://dShr.es" data-text="Check out dShr.es, a simple way to share Dropbox files with anyone!" data-via="dShresApp">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
 			<div class="footer">Created by <a href="http://JoshStrange.com">Josh Strange</a> (<a href="http://twitter.com/JoshStrange">@JoshStrange</a>)</div>
 		</div>
 	</body>
