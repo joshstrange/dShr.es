@@ -265,8 +265,14 @@ Route::get('addToDB/(:any)', function($hash)
 	if(DB::table('shares')->where('urlHash', '=', $hash)->count() !=1)
 		die("Hash not found");
 	$share = DB::table('shares')->where('urlHash', '=', $hash)->first();
-	$dropbox->copy(null,'/'.$share->filename,$share->copyref); // Turned off while testing
-	echo json_encode(array('message' => "File Copied!", 'error'=>false));
+	try {
+		$dropbox->copy(null,'/'.$share->filename,$share->copyref); // Turned off while testing
+		echo json_encode(array('message' => "File Copied!", 'error'=>false));
+	} catch (Exception $e) {
+		echo json_encode(array('message' => $e, 'error'=>true));
+	}
+	
+	
 });
 
 
