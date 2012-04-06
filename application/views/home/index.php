@@ -352,7 +352,12 @@
 					$('#' + file.id + "").fadeOut("slow");
 					updateFileList();
 				});
-				
+				$('li.parent .fileIcon').click(function() {
+					$(this).parent().find('ul').first().toggle();
+				});
+				$('li.parent .filename').click(function() {
+					$(this).parent().find('ul').first().toggle();
+				});
 				
             });
             function getLink(path,icon,size,pos)
