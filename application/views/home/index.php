@@ -383,7 +383,7 @@
 				var fileName = fileNameArray[fileNameArray.length-1];
 				$('#dbshare_'+pos).css('display','block');
 				$('#dbshare_'+pos+' a').css('background-image', 'url(/img/btn-retrieving-link-1.png)');
-				var dbshare =$('#dbshare_'+pos+' a')[0];
+				var dbshare =$('#dbshare_'+pos+' a');
 				jQuery.data(dbshare, 'number', 1);
 				var interval = setInterval("waiting("+pos+")",250);
 				$.getJSON('/getDSLink?path='+path+'&icon='+icon+'&size='+size, function(data) {
@@ -406,7 +406,7 @@
             function waiting(pos)
             {
             	var image = $('#dbshare_'+pos+' a').css('background-image');
-            	var dbshare =$('#dbshare_'+pos+' a')[0];
+            	var dbshare =$('#dbshare_'+pos+' a');
             	var number = jQuery.data(dbshare, 'number');
             	if(number==4) number=0;
             	number++;
