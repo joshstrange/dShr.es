@@ -179,6 +179,8 @@
 	<body>
 		<a href="http://github.com/joshstrange/dShr.es"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://a248.e.akamai.net/assets.github.com/img/71eeaab9d563c2b3c590319b398dd35683265e85/687474703a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub"></a>
 		<div id="main">
+			<div style="float:right"><a href="https://twitter.com/dSharesApp" class="twitter-follow-button" data-show-count="false">Follow @dSharesApp</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
 			<a href="/"><h1>dShr.es<img style="float:right;" src="/img/logo-dropshare-150x200.png"></h1></a>
 
 			<h2>#!/usr/bin/sharing</h2>
@@ -218,7 +220,7 @@
 				
 				
 			?>
-			<div class="social-footer"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://dShr.es" data-text="Check out dShr.es, a simple way to share Dropbox files with anyone!" data-via="dShresApp">Tweet</a>
+			<div class="social-footer"><a href="https://twitter.com/share" class="twitter-share-button" data-url="http://dShr.es" data-text="Check out dShr.es, a simple way to share Dropbox files with anyone!" data-via="dSharesApp">Tweet</a>
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div>
 			<div class="footer">Created by <a href="http://JoshStrange.com">Josh Strange</a> (<a href="http://twitter.com/JoshStrange">@JoshStrange</a>)</div>
 		</div>
