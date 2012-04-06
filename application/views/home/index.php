@@ -120,7 +120,7 @@
 				display: inline-block;
 				width: 181px;
 				height: 27px;
-				background: url('/img/btn-get-dropshare-link.png') bottom;
+				background: url('/img/btn-get-dshres-link.png') bottom;
 				vertical-align: middle;
 				/*text-indent: -99999px;*/
 			}
