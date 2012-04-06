@@ -147,7 +147,11 @@
 						$('#copyRef').css('background-image', 'url(/img/btn-copied.png)');
 					}
 					else
-						alert(data.message)
+					{
+						alert(data.message);
+						clearInterval(interval);
+						$('#copyRef').css('background-image', 'url(/img/btn-error-copying-file.png.png)');
+					}
 				});
             }
             function copying()
