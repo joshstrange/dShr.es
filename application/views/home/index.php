@@ -87,7 +87,7 @@
 				padding-left: 30px;
 				list-style:none;
 			}
-			#main ul.parent {
+			#main li.parent {
 				cursor: pointer;
 				height:auto;
 			}
@@ -447,7 +447,7 @@
 							//print_r($file);
 							if($file->is_dir)
 							{
-								echo '<li>
+								echo '<li class="parent">
 										<span class="fileIcon">
 											<img src="/img/16x16/'.$file->icon.'.gif">
 										</span>
