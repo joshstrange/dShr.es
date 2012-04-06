@@ -286,7 +286,9 @@
 		.animate > span:after {
 			display: none;
 		}
-		
+		.twitter-share-button {
+			padding-top:5px;
+		}
 		@-webkit-keyframes move {
 		    0% {
 		       background-position: 0 0;
