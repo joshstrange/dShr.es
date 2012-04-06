@@ -350,9 +350,13 @@
 					$('#' + file.id + "").fadeOut("slow");
 					updateFileList();
 				});
-				$('li.parent .fileIcon, li.parent .filename').click(function() {
+				$('li.parent .fileIcon').click(function() {
 					$(this).find('ul').slideToggle("fast");
 				});
+				$('li.parent .filename').click(function() {
+					$(this).find('ul').slideToggle("fast");
+				});
+				
             });
             function getLink(path,icon,size,pos)
             {
