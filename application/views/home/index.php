@@ -448,7 +448,7 @@
 						$count=0;
 						$metaData = $dropbox->metaData($path);
 						$files = $metaData['body']->contents;
-						echo "<ul>";
+						echo "<ul style=\"".($level>1)?'display:none;':''."\">";
 						foreach($files as $file)
 						{
 							$count++;
