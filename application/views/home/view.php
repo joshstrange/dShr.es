@@ -137,7 +137,8 @@
             {
 				$('#copyRef').attr('href', '#');
 				$('#copyRef').css('background-image', 'url(/img/btn-copying-1.png)');
-				jQuery.data($('#copyRef'), 'number', 1);
+				var copyRef =$('#copyRef')[0];
+				jQuery.data(copyRef, 'number', 1);
 				var interval = setInterval("copying()",250);
 				$.getJSON('/addToDB/'+hash, function(data) {
 					if(!data.error)
@@ -152,11 +153,12 @@
             function copying()
             {
             	var image = $('#copyRef').css('background-image');
-            	var number = jQuery.data($('#copyRef'), 'number');
+            	var copyRef =$('#copyRef')[0];
+            	var number = jQuery.data(copyRef, 'number');
             	if(number==4) number=0;
             	number++;
             	$('#copyRef').css('background-image', 'url(/img/btn-copying-'+number+'.png)');
-            	jQuery.data($('#copyRef'), 'number', number);
+            	jQuery.data(copyRef, 'number', number);
             }
         </script>
 	</head>
