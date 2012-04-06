@@ -396,6 +396,7 @@
 						$('#dbshare_'+pos+' input').select();
 						var twitterLink = '<a href="https://twitter.com/share" class="twitter-share-button" data-url="'+data.url+'" data-text="'+fileName+'" data-via="dShresApp" data-count="none">Tweet</a><scr'+'ipt>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</scr'+'ipt>';
 						$('#dbshare_'+pos).parent().html($('#dbshare_'+pos).parent().html()+twitterLink);
+						twttr.widgets.load();
 						
 					}
 					else
