@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>Drop.Sh/are - #!/usr/bin/sharing</title>
+		<title>dShr.es - #!/usr/bin/sharing</title>
 		<link rel="icon" type="image/png" href="/favicon.png">
 		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
@@ -130,6 +130,10 @@
 				background-position: 0 0;
 				cursor:pointer;
 			}
+			.footer {
+				margin-top: 10px;
+    			float: right;
+			}
 		</style>
 		<script type="text/javascript">
             $(function() {
@@ -210,6 +214,7 @@
 				
 				
 			?>
+			<div class="footer">Created by <a href="http://JoshStrange.com">Josh Strange</a> (<a href="http://twitter.com/JoshStrange">@JoshStrange</a>)</div>
 		</div>
 	</body>
 </html>

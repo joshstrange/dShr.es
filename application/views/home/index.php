@@ -181,6 +181,10 @@
 				font-size:12px;
 				overflow-y: auto;
 			}
+			.footer {
+				margin-top: 10px;
+    			float: right;
+			}
 			.meter { 
 			height: 5px;  /* Can be anything */
 			float:right;
@@ -466,7 +470,7 @@
 				}
 				
 			?>
-
+			<div class="footer">Created by <a href="http://JoshStrange.com">Josh Strange</a> (<a href="http://twitter.com/JoshStrange">@JoshStrange</a>)</div>
 		</div>
 	</body>
 </html>
