@@ -175,7 +175,7 @@
 				font-size: 21px;	
 			}
 			#filelist {
-				height: 70px;
+				height: 170px;
 				top:35px;
 				padding-left:10px;
 				font-size:12px;
@@ -353,10 +353,10 @@
 					updateFileList();
 				});
 				$('li.parent .fileIcon').click(function() {
-					$(this).parent().find('ul').toggle();
+					$(this).parent().find('ul').first().toggle();
 				});
 				$('li.parent .filename').click(function() {
-					$(this).parent().find('ul').toggle();
+					$(this).parent().find('ul').first().toggle();
 				});
 				
             });
