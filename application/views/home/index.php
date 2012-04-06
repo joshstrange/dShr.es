@@ -166,7 +166,7 @@
 			}
 			#dropfile .filename {
 				float: left;
-				font-size: 16px;
+				font-size: 14px;
 				clear: left;
 				position: relative;
 			}
@@ -175,11 +175,11 @@
 				font-size: 21px;	
 			}
 			#filelist {
-				height: 250px;
+				height: 70px;
 				top:35px;
 				padding-left:10px;
 				font-size:12px;
-				overflow-y: scroll;
+				overflow-y: auto;
 			}
 			.meter { 
 			height: 5px;  /* Can be anything */
@@ -349,7 +349,7 @@
 				//setInterval('updateFileList()',10000); //Update every 10 seconds - Commented out during testing of new code
 				uploader.bind('FileUploaded', function(up, file) {
 					//$('#' + file.id + " b").html("100%");
-					//$('#' + file.id + "").fadeOut("slow"); //Turned off for debugging
+					$('#' + file.id + "").fadeOut("slow");
 					updateFileList();
 				});
 				$('li.parent .fileIcon').click(function() {
