@@ -346,7 +346,7 @@
 
 					up.refresh(); // Reposition Flash/Silverlight
 				});
-				setInterval('updateFileList()',10000); //Update every 10 seconds - Commented out during testing of new code
+				//setInterval('updateFileList()',10000); //Update every 10 seconds - Commented out due to a lot of issues
 				uploader.bind('FileUploaded', function(up, file) {
 					//$('#' + file.id + " b").html("100%");
 					$('#' + file.id + "").fadeOut("slow");
@@ -390,10 +390,11 @@
             }
             function updateFileList()
             {
-				$.get('/getFileList', function(data) {
+				$.getJSON('/getFileList', function(data) {
 					//console.log('page: '+$('#dbFileList').html().length +' remote:'+data.length);
 					//console.log($('#dbFileList').html());
 					//console.log(data);
+
 					if($('#dbFileList').html().length != data.length)
 					{
 						//$('#dbFileList').html(data);
@@ -404,6 +405,7 @@
 					}
 				});   	
             }
+
         </script>
 	</head>
 	<body>
@@ -424,7 +426,7 @@
 						To share files using <a href="http://dShr.es">dShr.es</a> all you have to do is move the file(s) you want to share into your /Apps/dShr.es/ Folder and they will show up below! 
 					</p>
 
-					<h3>Your Files</h3>
+					<h3>Your Files <a href="javascript:updateFileList();"><img src="/img/refresh.png"></a></h3>
 					<div id="dbFileList">
 					<?php
 						printData('/',0,$dropbox);
