@@ -352,10 +352,10 @@
 					updateFileList();
 				});
 				$('li.parent .fileIcon').click(function() {
-					$(this).parent().find('ul').slideToggle();
+					$(this).parent().find('ul').toggle();
 				});
 				$('li.parent .filename').click(function() {
-					$(this).parent().find('ul').slideToggle();
+					$(this).parent().find('ul').toggle();
 				});
 				
             });
