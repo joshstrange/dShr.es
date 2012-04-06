@@ -364,6 +364,7 @@
             {
 				$('#dbshare_'+pos).css('display','block');
 				$('#dbshare_'+pos+' a').css('background-image', 'url(/img/btn-retrieving-link-1.png)');
+				jQuery.data($('#dbshare_'+pos+' a'), 'number', 1);
 				var interval = setInterval("waiting("+pos+")",250);
 				$.getJSON('/getDSLink?path='+path+'&icon='+icon+'&size='+size, function(data) {
 					if(!data.error)
@@ -381,11 +382,11 @@
             function waiting(pos)
             {
             	var image = $('#dbshare_'+pos+' a').css('background-image');
-            	var number = image.replace('url(/img/btn-retrieving-link-','');
-            	number = number.replace('.png)','');
+            	var number = jQuery.data($('#dbshare_'+pos+' a'), 'number');
             	if(number==4) number=0;
             	number++;
             	$('#dbshare_'+pos+' a').css('background-image', 'url(/img/btn-retrieving-link-'+number+'.png)');
+            	jQuery.data($('#dbshare_'+pos+' a'), 'number', number);
 
             }
             function updateFileList()
