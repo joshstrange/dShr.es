@@ -152,7 +152,7 @@
             {
 				$('#copyRef').attr('href', '#');
 				$('#copyRef').css('background-image', 'url(/img/btn-copying-1.png)');
-				var copyRef =$('#copyRef')[0];
+				var copyRef =$('#copyRef');
 				jQuery.data(copyRef, 'number', 1);
 				var interval = setInterval("copying()",250);
 				$.getJSON('/addToDB/'+hash, function(data) {
@@ -172,7 +172,7 @@
             function copying()
             {
             	var image = $('#copyRef').css('background-image');
-            	var copyRef =$('#copyRef')[0];
+            	var copyRef =$('#copyRef');
             	var number = jQuery.data(copyRef, 'number');
             	if(number==4) number=0;
             	number++;
@@ -201,6 +201,7 @@
 					<td>
 						<h5>File: <?=$share->filename?></h5>
 						<h5>Size: <?=$share->size?></h5>
+						<h5>Share: <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://dShr.es/s/<?=$share->urlhash?>" data-text="<?=$share->filename?>" data-via="dShresApp" data-count="none">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></h5>
 					</td>
 				</tr>
 			</table>
