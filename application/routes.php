@@ -106,7 +106,7 @@ Route::get('logout/ajax', function()
 {
 	session_start();
 	session_destroy();
-	echo json_encode(array('message' => 'There was an error tyring to log you out', 'error'=>true));
+	echo json_encode(array('message' => 'You are logged out!', 'error'=>false));
 });
 
 Route::post('fileupload', function()
