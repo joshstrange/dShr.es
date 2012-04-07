@@ -267,7 +267,7 @@ Route::get('addToDB/(:any)', function($hash)
 {
 	session_start();
 	if(!isLoggedIn())
-		die(json_encode(array('error' => 'Dropbox is not linked!')));
+		die(json_encode(array('message' => 'Your Dropbox is not linked, Click the button above to link your accout so you can copy the file','error'=> true,'code'=>-1)));
 	$dropbox = requireDropbox();
 	
 	$hash = preg_replace("/^A-Za-z0-9/i", "", $hash);
@@ -276,6 +276,7 @@ Route::get('addToDB/(:any)', function($hash)
 	$share = DB::table('shares')->where('urlHash', '=', $hash)->first();
 	try {
 		$dropbox->copy(null,'/'.$share->filename,$share->copyref); // Turned off while testing
+		DB::table('shares')->where('id', '=', $share->id)->update(array('copies' => $share->copies+1));
 		echo json_encode(array('message' => "File Copied!", 'error'=>false));
 	} catch (Exception $e) {
 		//echo json_encode(array('message' => print_r($e,1), 'error'=>true));

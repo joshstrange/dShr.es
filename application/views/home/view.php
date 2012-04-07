@@ -158,15 +158,23 @@
 				$.getJSON('/addToDB/'+hash, function(data) {
 					if(!data.error)
 					{
-						clearInterval(interval);
 						$('#copyRef').css('background-image', 'url(/img/btn-copied.png)');
+					}
+					else if('code' in data)
+					{
+						if(data.code==-1)
+						{
+							$('#copyError').html(data.message);
+							$('#copyRef').css('background-image', 'url(/img/btn-link-with-dropbox.png)');
+						}
+
 					}
 					else
 					{
 						$('#copyError').html(data.message);
-						clearInterval(interval);
 						$('#copyRef').css('background-image', 'url(/img/btn-error-copying-file.png)');
 					}
+					clearInterval(interval);
 				});
             }
             function copying()
