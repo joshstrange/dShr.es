@@ -250,6 +250,18 @@
 			position: relative;
 			overflow: hidden;
 		}
+		.unlinkDropbox {
+			display: inline-block;
+			width: 181px;
+			height: 27px;
+			background: url('/img/btn-unlink-dropbox.png') bottom;
+			vertical-align: middle;
+			/*text-indent: -99999px;*/
+		}
+		.unlinkDropbox:hover {
+			background-position: 0 0;
+			cursor:pointer;
+		}
 		.meter > span:after, .animate > span > span {
 			content: "";
 			position: absolute;
@@ -463,7 +475,7 @@
 					<p>
 						To share files using <a href="http://dShr.es">dShr.es</a> all you have to do is move the file(s) you want to share into your /Apps/dShr.es/ Folder and they will show up below! 
 					</p>
-
+					<a class="unlinkDropbox" id="unlinkDropbox" href="/logout"></a>
 					<h3>Your Files <a href="javascript:updateFileList();"><img src="/img/icon-refresh.png"></a></h3>
 					<div id="dbFileList">
 					<?php

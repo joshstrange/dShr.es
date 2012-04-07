@@ -102,6 +102,12 @@ Route::get('logout', function()
 	session_destroy();
 	Redirect::to('/')->send();
 });
+Route::get('logout/ajax', function()
+{
+	session_start();
+	session_destroy();
+	echo json_encode(array('message' => 'There was an error tyring to log you out', 'error'=>true));
+});
 
 Route::post('fileupload', function()
 {

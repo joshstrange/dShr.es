@@ -130,6 +130,18 @@
 				background-position: 0 0;
 				cursor:pointer;
 			}
+			.unlinkDropbox {
+				display: inline-block;
+				width: 181px;
+				height: 27px;
+				background: url('/img/btn-unlink-dropbox.png') bottom;
+				vertical-align: middle;
+				/*text-indent: -99999px;*/
+			}
+			.unlinkDropbox:hover {
+				background-position: 0 0;
+				cursor:pointer;
+			}
 			.footer {
 				margin-top: 10px;
     			float: right;
@@ -159,6 +171,8 @@
 					if(!data.error)
 					{
 						$('#copyRef').css('background-image', 'url(/img/btn-copied.png)');
+
+						$('#copyRef').html($('#copyRef').html()+'<a class="unlinkDropbox" id="unlinkDropbox" href="javascript:unlinkDropbox()"></a>');
 					}
 					else if('code' in data)
 					{
@@ -192,6 +206,20 @@
             	number++;
             	$('#copyRef').css('background-image', 'url(/img/btn-copying-'+number+'.png)');
             	jQuery.data(copyRef, 'number', number);
+            }
+            function unlinkDropbox()
+            {
+				$.getJSON('/logout/ajax', function(data) {
+					if(!data.error)
+					{
+						$('#unlinkDropbox').fadeOut("slow");;
+					}
+					else
+					{
+						
+					}
+				});
+
             }
         </script>
 	</head>
