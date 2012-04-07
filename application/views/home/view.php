@@ -152,7 +152,7 @@
             {
 				$('#copyRef').attr('href', '#');
 				$('#copyRef').css('background-image', 'url(/img/btn-copying-1.png)');
-				var copyRef =$('#copyRef');
+				var copyRef =$('#copyRef')[0];
 				jQuery.data(copyRef, 'number', 1);
 				var interval = setInterval("copying()",250);
 				$.getJSON('/addToDB/'+hash, function(data) {
@@ -166,6 +166,12 @@
 						{
 							$('#copyError').html(data.message);
 							$('#copyRef').css('background-image', 'url(/img/btn-link-with-dropbox.png)');
+							$('#copyRef').attr('href', '/linkDropbox');
+						}
+						else
+						{	
+							$('#copyError').html(data.message);
+							$('#copyRef').css('background-image', 'url(/img/btn-error-copying-file.png)');
 						}
 
 					}
@@ -180,7 +186,7 @@
             function copying()
             {
             	var image = $('#copyRef').css('background-image');
-            	var copyRef =$('#copyRef');
+            	var copyRef =$('#copyRef')[0];
             	var number = jQuery.data(copyRef, 'number');
             	if(number==4) number=0;
             	number++;
