@@ -166,7 +166,7 @@
 						{
 							$('#copyError').html(data.message);
 							$('#copyRef').css('background-image', 'url(/img/btn-link-with-dropbox.png)');
-							$('#copyRef').attr('href', '/linkDropbox');
+							$('#copyRef').attr('href', '/linkdropbox');
 						}
 						else
 						{	
