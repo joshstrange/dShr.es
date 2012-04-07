@@ -172,7 +172,7 @@
 					{
 						$('#copyRef').css('background-image', 'url(/img/btn-copied.png)');
 
-						$('#copyRef').html($('#copyRef').html()+'<a class="unlinkDropbox" id="unlinkDropbox" href="javascript:unlinkDropbox()"></a>');
+						$('#copyRef').parent().html($('#copyRef').html()+'<a class="unlinkDropbox" id="unlinkDropbox" href="javascript:unlinkDropbox()"></a>');
 					}
 					else if('code' in data)
 					{
