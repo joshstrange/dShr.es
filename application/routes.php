@@ -60,6 +60,15 @@ Route::get('s/(:any)', function($hash)
 	return View::make('home.view')->with('share', $share);
 });
 
+Route::get('s/(:any)/dl', function($hash)
+{
+	if(DB::table('shares')->where('urlHash', '=', $hash)->count() !=1)
+		Redirect::to('404')->send();
+	$share = DB::table('shares')->where('urlHash', '=', $hash)->first();
+	DB::table('shares')->where('id', '=', $share->id)->update(array('downloads' => $share->downloads+1));
+	Redirect::to($share->publiclink)->send();
+});
+
 Route::get('linkdropbox', function()
 {
 	$dropbox = requireDropbox();
