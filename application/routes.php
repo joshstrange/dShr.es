@@ -79,6 +79,17 @@ Route::get('linkdropbox', function()
 	Redirect::to('/')->send();
 });
 
+Route::get('linkdropbox/(:any)', function($hash)
+{
+	
+	$dropbox = requireDropbox();
+	//I might log users later but for now I want complete transparency
+	/*$dbid = Input::get('uid');
+	$oauth_token = Input::get('oauth_token');
+	DB::table('users')->insert(array('dbid' => $dbid, 'accessKey'=>$oauth_token));*/
+	Redirect::to('/s/'.$hash)->send();
+});
+
 Route::get('getFileList', function (){
 	$dropbox = requireDropbox();
 	printData('/',0,$dropbox);
@@ -89,7 +100,7 @@ Route::get('logout', function()
 {
 	session_start();
 	session_destroy();
-	Redirect::to('are')->send();
+	Redirect::to('/')->send();
 });
 
 Route::post('fileupload', function()
@@ -370,7 +381,7 @@ function isLoggedIn()
 		return false;
 }
 
-function requireDropbox()
+function requireDropbox($callback =null )
 {
 	// Register a simple autoload function
 	spl_autoload_register(function($class){
@@ -379,7 +390,8 @@ function requireDropbox()
 	});
 	// Check whether to use HTTPS and set the callback URL
 	$protocol = (!empty($_SERVER['HTTPS'])) ? 'https' : 'http';
-	$callback = $protocol . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+	if($callback==null)
+		$callback = $protocol . '://' . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 
 	// Instantiate the required Dropbox objects
 	$encrypter = new \Dropbox\OAuth\Storage\Encrypter('XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX');
